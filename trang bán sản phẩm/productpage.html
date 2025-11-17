@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sản Phẩm - HM Shop</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="productpage.css">
+</head>
+<body>
+
+    <header>
+        <input type="checkbox" name="" id="toggler">
+        <label for="toggler" class="fas fa-bars"></label>
+    
+        <a href="../index.html" class="logo">HM Shop<span>.</span></a>
+    
+        <nav class="navbar">
+            <a href="../index.html#home">Trang chủ</a>
+            <a href="../index.html#about">Giới thiệu</a>
+            <a href="../index.html#products">Sản phẩm</a>
+            <a href="../index.html#review">Đánh giá</a>
+            <a href="../index.html#contact">Liên hệ</a>
+        </nav>
+    
+        <div class="icons">
+            <a href="#" class="fas fa-heart"></a>
+            <a href="#" class="fas fa-shopping-cart"></a>
+            <a href="../login/login.html" class="fas fa-user"></a>
+        </div>
+    </header>
+
+    <div class="page-container">
+
+        <aside class="filter-sidebar">
+            <h2 id="close-sidebar-btn" title="Bấm để thu gọn bộ lọc">
+                <i class="fas fa-filter"></i> Bộ Lọc
+            </h2>
+            
+            <div class="filter-content">
+                <h3>Tất cả danh mục</h3>
+                
+                <details open>
+                    <summary>Trang sức</summary>
+                    <ul>
+                        <li><input type="checkbox" id="f-khuyen-tai" data-filter="khuyen-tai"><label for="f-khuyen-tai">Khuyên tai</label></li>
+                        <li><input type="checkbox" id="f-vong-co" data-filter="vong-co"><label for="f-vong-co">Vòng cổ</label></li>
+                        <li><input type="checkbox" id="f-vong-tay" data-filter="vong-tay"><label for="f-vong-tay">Vòng tay</label></li>
+                        <li><input type="checkbox" id="f-nhan" data-filter="nhan"><label for="f-nhan">Nhẫn</label></li>
+                    </ul>
+                </details>
+                
+                <details open>
+                    <summary>Hoa</summary>
+                    <ul>
+                        <li><input type="checkbox" id="f-hoa-giay" data-filter="hoa-giay"><label for="f-hoa-giay">Hoa giấy</label></li>
+                        <li><input type="checkbox" id="f-hoa-sap" data-filter="hoa-sap"><label for="f-hoa-sap">Hoa sáp</label></li>
+                        <li><input type="checkbox" id="f-hoa-len" data-filter="hoa-len"><label for="f-hoa-len">Hoa len</label></li>
+                        <li><input type="checkbox" id="f-hoa-lua" data-filter="hoa-lua"><label for="f-hoa-lua">Hoa lụa</label></li>
+                    </ul>
+                </details>
+
+                <details open>
+                    <summary>Quà tặng</summary>
+                    <ul>
+                        <li><input type="checkbox" id="f-tui" data-filter="tui"><label for="f-tui">Túi</label></li>
+                        <li><input type="checkbox" id="f-so-tay" data-filter="so-tay"><label for="f-so-tay">Sổ tay</label></li>
+                        <li><input type="checkbox" id="f-tuong" data-filter="tuong"><label for="f-tuong">Tượng</label></li>
+                        <li><input type="checkbox" id="f-lo-thuy-tinh" data-filter="lo-thuy-tinh"><label for="f-lo-thuy-tinh">Lọ thuỷ tinh</label></li>
+                    </ul>
+                </details>
+                
+                <details><summary>Đồ Trang Trí</summary>...</details>
+                <details><summary>Đồ Dùng</summary>...</details>
+                <details><summary>Sách Thủ Công</summary>...</details>
+
+                <button class="apply-filter-btn" id="apply-filter">ÁP DỤNG</button>
+            </div>
+        </aside>
+
+        <main class="product-main-area">
+            <button id="open-filter-btn" class="open-filter-btn">
+                <i class="fas fa-filter"></i> Hiện Bộ Lọc
+            </button>
+
+            <div class="product-grid">
+                
+                <a href="product-detail.html" class="product-link-wrapper">
+                    <div class="product-card" data-category="hoa-len qua-tang">
+                        <div class="product-header">
+                            <img src="https://i.pinimg.com/564x/e7/87/1c/e7871c890696b7a544f8b1a8d052d9b6.jpg" alt="Sản phẩm mèo">
+                            <span class="sale-tag">-30%</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="action-btn btn-heart"><i class="far fa-heart"></i></button>
+                            <button class="action-btn btn-add-cart">Add To Cart</button>
+                            <button class="action-btn btn-share"><i class="fas fa-share"></i></button>
+                        </div>
+                        <div class="product-info">
+                            <h3>Flower Pot (Cat)</h3>
+                            <div class="price">
+                                <span class="current-price">$12.99</span> <span class="old-price">$15.99</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="product-detail.html" class="product-link-wrapper">
+                    <div class="product-card" data-category="hoa-len">
+                        <div class="product-header">
+                            <img src="https://i.pinimg.com/564x/a0/61/8f/a0618f343a411132ce081518f97e88b6.jpg" alt="Bó hoa len">
+                        </div>
+                        <div class="product-actions">
+                            <button class="action-btn btn-heart"><i class="far fa-heart"></i></button>
+                            <button class="action-btn btn-add-cart">Add To Cart</button>
+                            <button class="action-btn btn-share"><i class="fas fa-share"></i></button>
+                        </div>
+                        <div class="product-info">
+                            <h3>Bó Hoa Len Tulip</h3>
+                            <div class="price"><span class="current-price">$19.99</span></div>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="product-detail.html" class="product-link-wrapper">
+                    <div class="product-card" data-category="nhan vong-co">
+                        <div class="product-header">
+                            <img src="https://i.pinimg.com/564x/a4/c8/5d/a4c85d68019b3a3625f771a539b5ae78.jpg" alt="Nhẫn bạc">
+                            <span class="sale-tag">-15%</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="action-btn btn-heart"><i class="far fa-heart"></i></button>
+                            <button class="action-btn btn-add-cart">Add To Cart</button>
+                            <button class="action-btn btn-share"><i class="fas fa-share"></i></button>
+                        </div>
+                        <div class="product-info">
+                            <h3>Nhẫn Bạc Trái Tim</h3>
+                            <div class="price">
+                                <span class="current-price">$9.99</span> <span class="old-price">$11.99</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="product-detail.html" class="product-link-wrapper">
+                    <div class="product-card" data-category="thiep-cam-on">
+                        <div class="product-header">
+                            <img src="https://i.pinimg.com/564x/e7/71/61/e771618683e3c004c810c9e6f3630f9c.jpg" alt="Thiệp cảm ơn">
+                        </div>
+                        <div class="product-actions">
+                            <button class="action-btn btn-heart"><i class="far fa-heart"></i></button>
+                            <button class="action-btn btn-add-cart">Add To Cart</button>
+                            <button class="action-btn btn-share"><i class="fas fa-share"></i></button>
+                        </div>
+                        <div class="product-info">
+                            <h3>Thiệp Cảm Ơn</h3>
+                            <div class="price"><span class="current-price">$2.99</span></div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </main>
+    </div>
+
+    <section class="footer">
+        </section>
+    
+    <script src="productpage.js"></script>
+</body>
+</html>

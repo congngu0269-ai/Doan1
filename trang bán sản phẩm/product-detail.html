@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi Tiết Sản Phẩm - HM Shop</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <link rel="stylesheet" href="../style.css"> 
+    
+    <link rel="stylesheet" href="product-detail.css">
+</head>
+<body>
+
+    <header>
+        <input type="checkbox" name="" id="toggler">
+        <label for="toggler" class="fas fa-bars"></label>
+    
+        <a href="../index.html" class="logo">HM Shop<span>.</span></a>
+        
+        <nav class="navbar">
+            <a href="../index.html#home">Trang chủ</a>
+            <a href="../index.html#about">Giới thiệu</a>
+            <a href="../index.html#products">Sản phẩm</a>
+            <a href="../index.html#review">Đánh giá</a>
+            <a href="../index.html#contact">Liên hệ</a>
+        </nav>
+    
+        <div class="icons">
+            <a href="#" class="fas fa-heart"></a>
+            <a href="#" class="fas fa-shopping-cart"></a>
+            <a href="../login/login.html" class="fas fa-user"></a>
+        </div>
+    </header>
+
+
+    <main class="product-detail-container">
+        
+        <div class="product-gallery">
+            <div class="gallery-main-image">
+                <img src="https://i.pinimg.com/564x/e7/87/1c/e7871c890696b7a544f8b1a8d052d9b6.jpg" alt="Sản phẩm mèo" id="main-product-image">
+            </div>
+            <div class="gallery-thumbnails">
+                <img src="https://i.pinimg.com/564x/e7/87/1c/e7871c890696b7a544f8b1a8d052d9b6.jpg" alt="Thumbnail 1" class="thumbnail-img active">
+                <img src="https://i.pinimg.com/564x/a0/61/8f/a0618f343a411132ce081518f97e88b6.jpg" alt="Thumbnail 2" class="thumbnail-img">
+                <img src="https://i.pinimg.com/564x/a4/c8/5d/a4c85d68019b3a3625f771a539b5ae78.jpg" alt="Thumbnail 3" class="thumbnail-img">
+            </div>
+        </div>
+
+        <div class="product-info-details">
+            <h1 class="product-title">Flower Pot (Cat) - Chậu hoa mèo dễ thương</h1>
+            
+            <div class="product-rating">
+                <span>4.9</span>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+                <span class="rating-count">(633)</span>
+            </div>
+
+            <div class="product-price-section">
+                <span class="current-price">$12.99</span>
+                <span class="old-price">$15.99</span>
+                <span class="discount-badge">-30%</span>
+            </div>
+
+           
+
+            <div class="product-quantity">
+                <span class="option-label">Số lượng:</span>
+                <div class="quantity-selector">
+                    <button class="qty-btn" id="qty-minus" aria-label="Giảm số lượng">-</button>
+                    <input type="number" id="qty-input" value="1" min="1">
+                    <button class="qty-btn" id="qty-plus" aria-label="Tăng số lượng">+</button>
+                </div>
+                <span class="stock-status">Chỉ còn 5 sản phẩm</span>
+            </div>
+            
+            <div class="product-action-buttons">
+                <button class="btn-main btn-add-to-cart">
+                    <i class="fas fa-cart-plus"></i> Thêm vào giỏ hàng
+                </button>
+                <button class="btn-main btn-buy-now">Mua ngay</button>
+            </div>
+
+            <button class="btn-wishlist">
+                <i class="far fa-heart"></i> Thêm vào yêu thích
+            </button>
+        </div>
+
+    </main>
+
+    <section class="product-description-section">
+        <h2>Mô Tả Sản Phẩm</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <ul>
+            <li>Chất liệu: Len cao cấp, an toàn.</li>
+            <li>Kích thước: 15cm x 10cm.</li>
+            <li>Làm thủ công 100%.</li>
+        </ul>
+    </section>
+
+    <section class="review-section">
+    <h2>Đánh Giá Từ Khách Hàng</h2>
+
+    <div class="review-summary">
+        <div class="summary-score">
+            <span class="score-number">4.9</span>
+            <span class="score-total">/ 5</span>
+        </div>
+        <div class="summary-stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+        </div>
+        <span class="review-count">(633 đánh giá)</span>
+    </div>
+
+    <form class="review-form">
+        <h3>Viết đánh giá của bạn</h3>
+        <div class="form-group">
+            <label>Đánh giá của bạn:</label>
+            <div class="star-rating-input">
+                <input type="radio" id="star5" name="rating" value="5"><label for="star5" title="5 sao"></label>
+                <input type="radio" id="star4" name="rating" value="4"><label for="star4" title="4 sao"></label>
+                <input type="radio" id="star3" name="rating" value="3"><label for="star3" title="3 sao"></label>
+                <input type="radio" id="star2" name="rating" value="2"><label for="star2" title="2 sao"></label>
+                <input type="radio" id="star1" name="rating" value="1"><label for="star1" title="1 sao"></label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="comment-name">Tên của bạn:</label>
+            <input type="text" id="comment-name" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="comment-text">Nội dung đánh giá:</label>
+            <textarea id="comment-text" class="form-control" rows="4"></textarea>
+        </div>
+        <button type="submit" class="btn-main btn-buy-now">Gửi đánh giá</button>
+    </form>
+
+    <div class="review-list">
+        <h3>Tất cả đánh giá (3)</h3>
+
+        <div class="review-item">
+            <div class="review-author">Nguyễn Văn A</div>
+            <div class="review-stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <p class="review-text">Sản phẩm tuyệt vời! Rất giống hình, chất liệu len tốt. Giao hàng nhanh.</p>
+            <span class="review-date">Đã đăng vào 2 ngày trước</span>
+        </div>
+
+        <div class="review-item">
+            <div class="review-author">Trần Thị B</div>
+            <div class="review-stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i> </div>
+            <p class="review-text">Màu sắc hơi khác 1 chút nhưng vẫn rất xinh nha shop.</p>
+            <span class="review-date">Đã đăng vào 1 tuần trước</span>
+        </div>
+    </div>
+</section>
+
+    <section class="footer">
+        <div class="box-container">
+            <div class="box">
+                <h3>quick links</h3>
+                <a href="../index.html#home">home</a>
+                <a href="../index.html#about">about</a>
+                <a href="../index.html#products">products</a>
+                <a href="../index.html#review">review</a>
+                <a href="../index.html#contact">contact</a>
+            </div>
+    
+            <div class="box">
+                <h3>extra links</h3>
+                <a href="#">my account</a>
+                <a href="#">my order</a>
+                <a href="#">my favorite</a>
+            </div>
+    
+            <div class="box">
+                <h3>locations</h3>
+                <a href="#">Ha Noi</a>
+                <a href="#">Tp.HCM</a>
+                <a href="#">Thanh Hoa</a>
+                <a href="#">Nam Dinh</a>
+            </div>
+    
+            <div class="box">
+                <h3>contact info</h3>
