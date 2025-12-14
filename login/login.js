@@ -12,12 +12,10 @@ loginBtn.addEventListener("click", () => {
 
 async function createUser(username, password) {
   const url = "http://localhost:3000/user/create";
-
   const dataToSend = {
     username: username,
     password: password,
   };
-  console.log(dataToSend);
   try {
     const response = await fetch(url, {
       method: "POST", // Chỉ định phương thức
@@ -26,22 +24,22 @@ async function createUser(username, password) {
       },
       body: JSON.stringify(dataToSend), // Bắt buộc: chuyển object JS thành chuỗi JSON
     });
+
     const result = await response.json();
     console.log("Đã tạo thành công:", result);
+    container.classList.remove("active");
   } catch (error) {
     console.error("Lỗi khi gửi:", error);
   }
-  alert("Het ham");
 }
+
 registerUserBtn.addEventListener("click", async () => {
-  alert("Da Click vao Sign up");
-  const emailValue = document.getElementById("email").value;
-  const passwordValue = document.getElementById("password").value;
-  alert("Ghi ra thong tin: Email, Password" + emailValue + " " + passwordValue);
+  const emailValue = document.getElementById("register-email").value;
+  const passwordValue = document.getElementById("register-password").value;
   // 3. Kiểm tra xem dữ liệu có rỗng không (Validation đơn giản)
   if (!emailValue || !passwordValue) {
-    alert("Vui lòng nhập đầy đủ thông tin!");
     return;
   }
+
   await createUser(emailValue, passwordValue);
 });
