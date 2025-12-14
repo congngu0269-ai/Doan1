@@ -2,22 +2,24 @@
 /* CÀI ĐẶT CHUNG & BIẾN */
 /* ======================= */
 :root {
-    --pink: #e84393;
-    --primary-pink: #E91E63;
-    --light-pink: #FCE4EC;
-    --text-dark: #333;
-    --text-light: #777;
-    --border-color: #eee;
+   --primary-pink: #4A70A9; /* Màu chính (Nút mua, giá tiền) -> Xanh đậm */
+    --pink: #8FABD4;         /* Màu phụ (Hover, icon) -> Xanh nhạt */
+    --light-pink: #EFECE3;   /* Màu nền nhẹ (Tag giảm giá) -> Màu kem */
+    
+    --text-dark: #000000;    /* Màu chữ chính -> Đen */
+    --text-light: #555555;   /* Màu chữ phụ -> Xám đậm */
+    --border-color: #dcdcdc; /* Màu viền */
 }
 
 /* ======================= */
 /* BỐ CỤC TRANG CHI TIẾT */
 /* ======================= */
 .product-detail-container {
-    display: flex;
-    flex-wrap: wrap; /* Cho phép xuống hàng trên mobile */
+  display: flex;
+    flex-wrap: wrap; 
     max-width: 1200px;
-    margin: 11rem auto 4rem; /* 11rem để tránh header */
+    /* Tăng margin-top lên 13rem để tránh header */
+    margin: 13rem auto 4rem; 
     padding: 2rem;
     gap: 3rem;
     background: #fff;
@@ -143,8 +145,11 @@
     border-left: 1px solid var(--border-color);
     border-right: 1px solid var(--border-color);
     /* Tắt mũi tên mặc định của input number */
-    --moz-appearance: textfield;
-    --webkit-appearance: none;
+    
+    /* ĐÃ SỬA: Bỏ bớt 1 dấu gạch ngang */
+    -moz-appearance: textfield;
+    -webkit-appearance: none;
+    appearance: none;
     margin: 0;
 }
 #qty-input::-webkit-outer-spin-button,
@@ -207,7 +212,6 @@
     padding: 2rem;
     background: #fff;
     border-radius: 8px;
-    /* ĐÂY LÀ DÒNG ĐÃ SỬA LỖI */
     box-shadow: 0 5px 15px rgba(0,0,0,0.05);
 }
 .product-description-section h2 {
@@ -236,9 +240,8 @@
 }
 
 
-
-/* Danh gia commment */
-review-section {
+/* --- ĐÁNH GIÁ COMMENT (ĐÃ SỬA: Thêm dấu .) --- */
+.review-section {
     max-width: 1200px;
     margin: 0 auto 4rem;
     padding: 2rem;
@@ -326,3 +329,38 @@ review-section {
 .review-stars { color: #f39c12; font-size: 1.4rem; margin-bottom: 1rem; }
 .review-text { font-size: 1.5rem; color: #555; line-height: 1.6; margin-bottom: 1rem; }
 .review-date { font-size: 1.3rem; color: var(--text-light); }
+
+/* SỬA LỖI HEADER CHO TRANG CHI TIẾT */
+/* ======================= */
+
+/* 1. Luôn hiện nền trắng cho Header */
+header {
+    background: #fff !important; /* Bắt buộc nền trắng */
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.1); /* Luôn có bóng đổ */
+}
+
+/* 2. Luôn hiện chữ màu đen */
+header .logo, 
+header .navbar a, 
+header .icons a,
+header .fa-bars {
+    color: var(--text-dark) !important; /* Bắt buộc chữ đen */
+}
+
+/* 3. Đổi màu khi hover */
+header .navbar a:hover, 
+header .icons a:hover {
+    color: var(--primary-pink) !important;
+}
+
+/* 4. Đẩy nội dung xuống để không bị Header che */
+.product-detail-container {
+    margin-top: 12rem; /* Tăng khoảng cách top lên */
+}
+
+/* Responsive cho mobile */
+@media (max-width: 991px) {
+    .product-detail-container {
+        margin-top: 10rem;
+    }
+}

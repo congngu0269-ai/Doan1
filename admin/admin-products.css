@@ -1,0 +1,135 @@
+/* Kế thừa màu sắc từ admin.css gốc */
+:root {
+    --main-color: #22BAA0;
+    --color-dark: #34425A;
+}
+
+/* Nút Thêm sản phẩm */
+#btn-add-product {
+    background: var(--main-color);
+    color: #fff;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: 600;
+    transition: background 0.3s;
+}
+
+#btn-add-product:hover {
+    background: #1a9f86;
+}
+
+/* Nút hành động trong bảng (Sửa/Xóa) */
+.actions span {
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 50%;
+    transition: 0.2s;
+}
+
+.btn-edit { color: #22BAA0; }
+.btn-edit:hover { background: #e5f8ed; }
+
+.btn-delete { color: #ff4d4d; }
+.btn-delete:hover { background: #ffe6e6; }
+
+
+/* --- MODAL (CỬA SỔ BẬT LÊN) --- */
+.modal {
+    display: none; /* Mặc định ẩn */
+    position: fixed;
+    z-index: 200;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5); /* Nền tối mờ */
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fff;
+    width: 500px;
+    max-width: 90%;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    overflow: hidden;
+    animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.modal-header {
+    background: var(--main-color);
+    color: #fff;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.close-modal {
+    font-size: 24px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.modal-body {
+    padding: 20px;
+}
+
+/* Style cho Form trong Modal */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--color-dark);
+    font-weight: 600;
+}
+
+.form-group input, 
+.form-group select, 
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: inherit;
+}
+
+.form-row {
+    display: flex;
+    gap: 15px;
+}
+
+.form-row .form-group {
+    flex: 1;
+}
+
+.btn-save {
+    width: 100%;
+    padding: 12px;
+    background: var(--main-color);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.btn-save:hover {
+    background: #34425A;
+}

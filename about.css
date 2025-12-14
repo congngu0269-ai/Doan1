@@ -1,0 +1,209 @@
+/* Biến màu (Đồng bộ với style.css mới) */
+:root {
+    --primary-pink: #4A70A9; /* Xanh đậm */
+    --pink: #8FABD4;         /* Xanh nhạt */
+    --light-pink: #EFECE3;   /* Màu kem */
+    
+    --text-dark: #000000;    /* Đen */
+    --text-light: #555555;   /* Xám đậm */
+    --border-color: #dcdcdc;
+}
+
+/* --- ABOUT HERO BANNER --- */
+.about-hero {
+    /* Ảnh nền + Lớp phủ tối để làm nổi Header trắng */
+    /* Thay 'images/image_fbc250.jpg' bằng đường dẫn ảnh banner của bạn */
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/handmadecraft.avif');
+    background-size: cover;
+    background-position: center;
+    
+    /* Chiều cao banner */
+    height: 60vh; 
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    
+    /* QUAN TRỌNG: Đặt về 0 để banner tràn lên đỉnh, nằm dưới Header */
+    margin-top: 0; 
+    
+    /* Thêm khoảng đệm để nội dung chữ không bị Header che mất */
+    padding-top: 8rem; 
+}
+
+.about-hero h1 {
+    font-size: 4.5rem;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+}
+
+.about-hero p {
+    font-size: 1.8rem;
+    font-weight: 300;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+
+/* --- ABOUT CONTENT --- */
+.about-content {
+    padding: 6rem 9%;
+}
+
+.about-row {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    margin-bottom: 6rem;
+}
+
+/* Đảo ngược thứ tự cho hàng thứ 2 */
+.about-row.reverse {
+    flex-direction: row-reverse;
+}
+
+.about-image {
+    flex: 1;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 1rem 2rem rgba(0,0,0,0.15);
+}
+
+.about-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.about-image:hover img {
+    transform: scale(1.05);
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about-text h2 {
+    font-size: 3rem;
+    color: var(--primary-pink);
+    margin-bottom: 1.5rem;
+    position: relative;
+    display: inline-block;
+}
+
+/* Gạch chân tiêu đề */
+.about-text h2::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 50%;
+    height: 3px;
+    background: var(--pink);
+}
+
+.about-text p {
+    font-size: 1.6rem;
+    color: var(--text-light);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    text-align: initial;
+    text-transform: none;
+}
+
+.about-list {
+    list-style: none;
+    margin-top: 1rem;
+}
+
+.about-list li {
+    font-size: 1.6rem;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.about-list li i {
+    color: var(--primary-pink);
+    font-size: 1.4rem;
+}
+
+/* --- CORE VALUES --- */
+.core-values {
+    background-color: var(--light-pink); /* Nền màu kem */
+    padding: 6rem 9%;
+    text-align: center;
+}
+
+.core-values h2 {
+    font-size: 3.5rem;
+    color: var(--text-dark);
+    margin-bottom: 4rem;
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap: 2rem;
+}
+
+.value-card {
+    background: #fff;
+    padding: 3rem 2rem;
+    border-radius: 10px;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.value-card:hover {
+    transform: translateY(-10px);
+}
+
+.value-card i {
+    font-size: 4rem;
+    color: var(--primary-pink);
+    margin-bottom: 2rem;
+}
+
+.value-card h3 {
+    font-size: 2rem;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+}
+
+.value-card p {
+    font-size: 1.5rem;
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 991px) {
+    .about-hero h1 { font-size: 3.5rem; }
+    .about-row, .about-row.reverse {
+        flex-direction: column;
+        gap: 2rem;
+    }
+.about-row .about-image {
+  
+    flex: none; 
+    
+    
+    width: 30rem; 
+    height: auto; 
+}
+
+
+.about-row .about-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    border-radius: 10px;
+}

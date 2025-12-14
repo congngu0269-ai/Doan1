@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đơn Hàng Của Tôi - HM Shop</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Link CSS chung -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Link CSS riêng cho trang Đơn hàng -->
+    <link rel="stylesheet" href="order.css">
+</head>
+<body>
+
+    <!-- HEADER (Copy từ index.html) -->
+    <header>
+        <input type="checkbox" name="" id="toggler">
+        <label for="toggler" class="fas fa-bars"></label>
+    
+        <a href="index.html" class="logo">HM Shop<span>.</span></a>
+        
+        <nav class="navbar">
+            <a href="index.html#home">Trang chủ</a>
+            <a href="about.html">Giới thiệu</a>
+            <a href="product-detail/productpage.html">Sản phẩm</a>
+            <a href="index.html#review">Đánh giá</a>
+            <a href="index.html#contact">Liên hệ</a>
+        </nav>
+    
+        <div class="icons">
+            <a href="#" class="fas fa-heart"></a>
+            <a href="cart/cart.html" class="fas fa-shopping-cart"></a>
+            <a href="login/login.html" class="fas fa-user"></a>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <div class="order-container">
+        <div class="page-header">
+            <h1>Đơn Hàng Của Tôi</h1>
+            <p>Theo dõi và quản lý các đơn hàng đã đặt</p>
+        </div>
+
+        <!-- Bộ lọc trạng thái đơn hàng -->
+        <div class="order-tabs">
+            <button class="tab-btn active">Tất cả</button>
+            <button class="tab-btn">Chờ xác nhận</button>
+            <button class="tab-btn">Đang giao</button>
+            <button class="tab-btn">Đã giao</button>
+            <button class="tab-btn">Đã hủy</button>
+        </div>
+
+        <!-- Danh sách đơn hàng -->
+        <div class="order-list">
+            
+            <!-- Đơn hàng 1 -->
+            <div class="order-card">
+                <div class="order-header">
+                    <div class="order-id">Mã đơn: <strong>#ORD-2023001</strong></div>
+                    <div class="order-status status-delivered">Giao hàng thành công</div>
+                </div>
+                <div class="order-body">
+                    <div class="order-item">
+                        <img src="https://i.pinimg.com/564x/e7/87/1c/e7871c890696b7a544f8b1a8d052d9b6.jpg" alt="Sản phẩm">
+                        <div class="item-info">
+                            <h4>Flower Pot (Cat)</h4>
+                            <p>Phân loại: Mèo Vàng</p>
+                            <p>x1</p>
+                        </div>
+                        <div class="item-price">325.000 ₫</div>
+                    </div>
+                    <div class="order-item">
+                        <img src="https://i.pinimg.com/564x/a4/c8/5d/a4c85d68019b3a3625f771a539b5ae78.jpg" alt="Sản phẩm">
+                        <div class="item-info">
+                            <h4>Nhẫn Bạc Trái Tim</h4>
+                            <p>Phân loại: Bạc 925</p>
+                            <p>x2</p>
+                        </div>
+                        <div class="item-price">500.000 ₫</div>
+                    </div>
+                </div>
+                <div class="order-footer">
+                    <div class="order-total">
+                        Thành tiền: <span>825.000 ₫</span>
+                    </div>
+                    <div class="order-actions">
+                        <button class="btn-secondary">Mua Lại</button>
+                        <button class="btn-primary">Đánh Giá</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Đơn hàng 2 -->
+            <div class="order-card">
+                <div class="order-header">
+                    <div class="order-id">Mã đơn: <strong>#ORD-2023002</strong></div>
+                    <div class="order-status status-shipping">Đang giao hàng</div>
+                </div>
+                <div class="order-body">
+                    <div class="order-item">
+                        <img src="https://i.pinimg.com/564x/a0/61/8f/a0618f343a411132ce081518f97e88b6.jpg" alt="Sản phẩm">
+                        <div class="item-info">
+                            <h4>Bó Hoa Len Tulip</h4>
+                            <p>Phân loại: 5 Bông</p>
+                            <p>x1</p>
+                        </div>
+                        <div class="item-price">499.000 ₫</div>
+                    </div>
+                </div>
+                <div class="order-footer">
+                    <div class="order-total">
+                        Thành tiền: <span>499.000 ₫</span>
+                    </div>
+                    <div class="order-actions">
+                        <button class="btn-secondary" disabled>Đã Nhận Được Hàng</button>
+                        <button class="btn-primary">Theo Dõi Đơn</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- FOOTER (Copy từ index.html) -->
+    <section class="footer">
+        <div class="box-container">
+            <!-- (Nội dung footer giữ nguyên) -->
+             <div class="box">
+                <h3>quick links</h3>
+                <a href="index.html#home">home</a>
+                <!-- ... -->
+            </div>
+            <!-- ... -->
+        </div>
+        <div class="credit"> created by <span> TNT </span> | all right reserved</div>
+    </section>
+
+    <!-- Script cho Header cuộn -->
+    <script src="script.js"></script>
+</body>
+</html>

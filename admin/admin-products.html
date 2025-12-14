@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <title>Quản Lý Sản Phẩm - Admin</title>
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="admin-products.css">
+</head>
+<body>
+   <input type="checkbox" id="menu-toggle">
+    
+    <!-- SIDEBAR  -->
+    <div class="sidebar">
+        <div class="side-header">
+            <h3>M<span>odern</span></h3>
+        </div>
+        
+        <div class="side-content">
+            <div class="profile">
+                <div class="profile-img bg-img" style="background-image: url(img/3.jpeg)"></div>
+                <h4>David Green</h4>
+                <small>Admin</small>
+            </div>
+
+            <div class="side-menu">
+                <ul>
+                    <li>
+                        <!-- Link về Dashboard -->
+                        <a href="admin.html"> 
+                            <span class="las la-home"></span>
+                            <small>Dashboard</small>
+                        </a>
+                    </li>
+                    <li>
+                        <!-- Trang hiện tại (active) -->
+                        <a href="admin-products.html" class="active"> 
+                            <span class="las la-box"></span>
+                            <small>Sản Phẩm</small>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <span class="las la-shopping-cart"></span>
+                            <small>Đơn Hàng</small>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <span class="las la-user-alt"></span>
+                            <small>Khách Hàng</small>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <span class="las la-envelope"></span>
+                            <small>Hộp Thư</small>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <span class="las la-clipboard-list"></span>
+                            <small>Dự Án</small>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <!-- MAIN CONTENT -->
+    <div class="main-content">
+        
+        <header>
+            <div class="header-content">
+                <label for="menu-toggle">
+                    <span class="las la-bars"></span>
+                </label>
+                
+                <div class="header-menu">
+                    <div class="user">
+                        <div class="bg-img" style="background-image: url(img/1.jpeg)"></div>
+                        <span class="las la-power-off"></span>
+                        <span>Logout</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+        
+        <main>
+            <div class="page-header">
+                <h1>Quản Lý Sản Phẩm</h1>
+                <small>Home / Sản Phẩm</small>
+            </div>
+            
+            <div class="page-content">
+                <div class="records table-responsive">
+
+                    <div class="record-header">
+                        <div class="add">
+                            <span>Chức năng</span>
+                            <button id="btn-add-product">
+                                <span class="las la-plus"></span> Thêm sản phẩm
+                            </button>
+                        </div>
+
+                        <div class="browse">
+                           <input type="search" placeholder="Tìm kiếm..." class="record-search" id="search-input">
+                            <select name="" id="category-filter">
+                                <option value="">Tất cả danh mục</option>
+                                <option value="Trang sức">Trang sức</option>
+                                <option value="Hoa Handmade">Hoa Handmade</option>
+                                <option value="Quà tặng">Quà tặng</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <table width="100%">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>ẢNH</th>
+                                    <th>TÊN SẢN PHẨM</th>
+                                    <th>DANH MỤC</th>
+                                    <th>GIÁ</th>
+                                    <th>KHO</th>
+                                    <th>TRẠNG THÁI</th>
+                                    <th>THAO TÁC</th>
+                                </tr>
+                            </thead>
+                            <tbody id="product-table-body">
+                                <!-- Dữ liệu sẽ được JS chèn vào đây -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- MODAL THÊM/SỬA SẢN PHẨM -->
+    <div class="modal" id="product-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modal-title">Thêm Sản Phẩm Mới</h2>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="product-form">
+                    <div class="form-group">
+                        <label>Tên sản phẩm</label>
+                        <input type="text" id="p-name" placeholder="Nhập tên sản phẩm..." required>
+                    </div>
+                    <div class="form-group">
+                        <label>Danh mục</label>
+                        <select id="p-category">
+                            <option value="Trang sức">Trang sức</option>
+                            <option value="Hoa Handmade">Hoa Handmade</option>
+                            <option value="Quà tặng">Quà tặng</option>
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Giá ($)</label>
+                            <input type="number" id="p-price" placeholder="0.00" step="0.01" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Số lượng kho</label>
+                            <input type="number" id="p-stock" placeholder="0" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Link Ảnh</label>
+                        <input type="text" id="p-image" placeholder="https://...">
+                    </div>
+                    <div class="form-group">
+                        <label>Trạng thái</label>
+                        <select id="p-status">
+                            <option value="Còn hàng">Còn hàng</option>
+                            <option value="Hết hàng">Hết hàng</option>
+                            <option value="Sắp hết">Sắp hết</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn-save">Lưu Sản Phẩm</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="admin-data.js"></script>
+    <script src="admin-products.js"></script>
+</body>
+</html>

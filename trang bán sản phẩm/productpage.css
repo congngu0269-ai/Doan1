@@ -2,12 +2,13 @@
 /* CÀI ĐẶT CHUNG & BIẾN */
 /* ======================= */
 :root {
-    --pink: #e84393;
-    --primary-pink: #E91E63;
-    --light-pink: #FCE4EC;
-    --border-color: #eee;
-    --text-dark: #333;
-    --text-light: #777;
+  --primary-pink: #4A70A9; /* Màu chính (Nút mua, giá tiền) -> Xanh đậm */
+    --pink: #8FABD4;         /* Màu phụ (Hover, icon) -> Xanh nhạt */
+    --light-pink: #EFECE3;   /* Màu nền nhẹ (Tag giảm giá) -> Màu kem */
+    
+    --text-dark: #000000;    /* Màu chữ chính -> Đen */
+    --text-light: #555555;   /* Màu chữ phụ -> Xám đậm */
+    --border-color: #dcdcdc; /* Màu viền */
 }
 
 * {
@@ -24,11 +25,15 @@ html {
     overflow-x: hidden;
 }
 
-body { background-color: #f9f9f9; }
+body { 
+    background-color: #f9f9f9; 
+    position: relative; /* Cần cho hiệu ứng trượt */
+    overflow-x: hidden; /* Ngăn thanh cuộn ngang khi trượt */
+}
 ul { list-style: none; }
 button { cursor: pointer; border: none; background: none; }
 
-/* Thêm style cho link bọc thẻ sản phẩm */
+/* Style cho link bọc thẻ sản phẩm */
 .product-link-wrapper {
     text-decoration: none;
     color: inherit;
@@ -55,22 +60,47 @@ header .fa-bars {
     padding: .5rem .5rem; cursor: pointer;
     border: .1rem solid rgba(0,0,0,.3); display: none;
 }
+/* Cập nhật số lượng trên icon giỏ hàng */
+.icons .fa-shopping-cart {
+    position: relative;
+}
+.cart-count {
+    position: absolute;
+    top: -8px;
+    right: -12px;
+    background-color: var(--primary-pink);
+    color: white;
+    font-size: 1.2rem;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    line-height: 1;
+}
 
 /* ======================= */
-/* BỐ CỤC CHÍNH (ĐÂY LÀ PHẦN SỬA LỖI VỠ LAYOUT) */
+/* BỐ CỤC CHÍNH */
 /* ======================= */
+.main-wrapper {
+    transition: transform 0.5s ease;
+}
+
 .page-container {
     display: flex;
     max-width: 1400px;
     margin: 11rem auto 4rem; /* 11rem để tránh header */
     padding: 0 2rem;
     gap: 2.5rem;
-    align-items: flex-start; /* Quan trọng: căn chỉnh các cột */
+    align-items: flex-start; 
 }
 
 /* --- SIDEBAR --- */
 .filter-sidebar {
-    flex: 0 0 250px; /* Cố định chiều rộng sidebar */
+    flex: 0 0 250px; 
     background: #fff;
     border-radius: 8px;
     padding: 2rem;
@@ -184,6 +214,167 @@ details[open] summary::after { transform: rotate(180deg); }
 .footer .box-container .box i { color: var(--pink); padding-right: .5rem; }
 .footer .credit { text-align: center; padding: 1.5rem; margin-top: 1.5rem; padding-top: 2.5rem; font-size: 2rem; color: #333; border-top: .1rem solid rgba(0,0,0,.1); }
 .footer .credit span { color: var(--pink); }
+
+/* ======================= */
+/* GIỎ HÀNG TRƯỢT (MỚI) */
+/* ======================= */
+
+/* Lớp phủ (Làm mờ nền khi mở giỏ hàng) */
+body.showCart::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1001;
+}
+
+/* Wrapper chính để đẩy sang trái */
+body.showCart .main-wrapper {
+    transform: translateX(-400px);
+}
+
+/* Giỏ hàng (cart-tab) */
+.cart-tab {
+    width: 400px;
+    max-width: 90vw;
+    background-color: #fff;
+    color: var(--text-dark);
+    position: fixed;
+    top: 0;
+    right: -400px; /* Mặc định ẩn */
+    bottom: 0;
+    display: grid;
+    grid-template-rows: 70px 1fr 140px; /* Header, Nội dung, Footer */
+    transition: right 0.5s ease;
+    z-index: 1002;
+    box-shadow: -10px 0 20px rgba(0, 0, 0, 0.1);
+}
+body.showCart .cart-tab {
+    right: 0;
+}
+
+.cart-tab h1 {
+    padding: 20px;
+    margin: 0;
+    font-weight: 600;
+    font-size: 2.2rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* Danh sách sản phẩm trong giỏ */
+.list-cart {
+    padding: 20px;
+    overflow-y: auto;
+}
+.cart-empty-msg {
+    text-align: center;
+    font-size: 1.6rem;
+    color: var(--text-light);
+    padding-top: 3rem;
+}
+.cart-item {
+    display: grid;
+    grid-template-columns: 80px 1fr 100px 30px;
+    gap: 15px;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.cart-item img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+.cart-item .info h4 {
+    font-size: 1.5rem;
+    margin: 0;
+    font-weight: 600;
+}
+.cart-item .info .price {
+    font-size: 1.4rem;
+    color: var(--primary-pink);
+    font-weight: bold;
+}
+.cart-item .quantity {
+    display: flex;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+}
+.cart-item .quantity span {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1.6rem;
+    user-select: none; /* Ngăn bôi đen chữ */
+}
+.cart-item .quantity span:nth-child(2) { /* Số lượng */
+    cursor: auto;
+    font-size: 1.5rem;
+    border-left: 1px solid var(--border-color);
+    border-right: 1px solid var(--border-color);
+}
+.cart-item .remove {
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    color: var(--text-light);
+    cursor: pointer;
+}
+.cart-item .remove:hover { color: var(--primary-pink); }
+
+/* Footer của giỏ hàng */
+.cart-summary {
+    padding: 20px;
+    border-top: 1px solid var(--border-color);
+}
+.total-price {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--text-dark);
+}
+.total-price span:last-child {
+    color: var(--primary-pink);
+    font-size: 2rem;
+}
+
+.cart-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    padding: 0 20px 20px;
+}
+.cart-buttons button {
+    height: 45px;
+    border-radius: 5rem;
+    border: none;
+    font-size: 1.4rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.cart-buttons .btn-close-cart {
+    background-color: #eee;
+    color: var(--text-dark);
+}
+.cart-buttons .btn-close-cart:hover {
+    background-color: #ddd;
+}
+.cart-buttons .btn-checkout {
+    background-color: var(--primary-pink);
+    color: #fff;
+}
+.cart-buttons .btn-checkout:hover {
+    background-color: #c2185b;
+}
 
 /* ======================= */
 /* RESPONSIVE */
