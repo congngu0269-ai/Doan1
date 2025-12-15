@@ -61,6 +61,30 @@ section {
     background-color: var(--primary-pink);
 }
 
+body {
+    background-color: #f9f9f9;
+    
+    /* Thiết lập Flexbox để quản lý chiều cao trang */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Sửa lại phần Footer để tách biệt rõ ràng */
+.footer {
+    /* Tự động đẩy xuống đáy nếu nội dung trang ngắn */
+    margin-top: auto; 
+    
+    background: #fff;
+    padding: 2rem 9%;
+    
+    /* Tạo đường viền và bóng đổ để tách biệt giống Header */
+    border-top: 1px solid rgba(0,0,0,0.1);
+    box-shadow: 0 -0.5rem 1.5rem rgba(0,0,0,0.05); /* Bóng đổ ngược lên trên */
+}
+
+
+
 /* ======================= */
 /* HEADER (XỬ LÝ CUỘN TRANG) */
 /* ======================= */

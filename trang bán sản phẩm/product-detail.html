@@ -4,15 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chi Tiết Sản Phẩm - HM Shop</title>
-    
+    <!-- Link Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
+    <!-- Link CSS trang chủ -->
     <link rel="stylesheet" href="../style.css"> 
     
+    <!-- Link CSS trang chi tiết -->
     <link rel="stylesheet" href="product-detail.css">
 </head>
 <body>
 
+    <!-- ================= HEADER ================= -->
     <header>
         <input type="checkbox" name="" id="toggler">
         <label for="toggler" class="fas fa-bars"></label>
@@ -21,156 +24,138 @@
         
         <nav class="navbar">
             <a href="../index.html#home">Trang chủ</a>
-            <a href="../index.html#about">Giới thiệu</a>
-            <a href="../index.html#products">Sản phẩm</a>
+            <a href="../about.html">Giới thiệu</a>
+            <a href="../product-detail/productpage.html">Sản phẩm</a>
             <a href="../index.html#review">Đánh giá</a>
             <a href="../index.html#contact">Liên hệ</a>
         </nav>
     
         <div class="icons">
             <a href="#" class="fas fa-heart"></a>
-            <a href="#" class="fas fa-shopping-cart" id="cart-icon-btn"></a>
+            <a href="../cart/cart.html" class="fas fa-shopping-cart" id="cart-icon-btn">
+                 <span class="cart-count">0</span>
+            </a>
             <a href="../login/login.html" class="fas fa-user"></a>
         </div>
     </header>
 
-
-    <main class="product-detail-container">
-        
-        <div class="product-gallery">
-            <div class="gallery-main-image">
-                <img src="" alt="Ảnh sản phẩm chính" id="main-product-image">
-            </div>
-            <div class="gallery-thumbnails" id="product-thumbnails">
-                </div>
-        </div>
-
-        <div class="product-info-details">
-            <h1 class="product-title" id="product-name">Đang tải...</h1>
+    <!-- ================= PRODUCT WRAPPER ================= -->
+    <section class="product-wrapper">
+        <div class="product-detail-container">
             
-            <div class="product-rating">
-                <span>4.9</span>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star-half-alt"></i>
-                <span class="rating-count">(633)</span>
-            </div>
-
-            <div class="product-price-section">
-                <span class="current-price" id="product-price"></span>
-                <span class="old-price" id="product-old-price"></span>
-                <span class="discount-badge" id="product-discount"></span>
-            </div>
-
-            <div class="product-quantity">
-                <span class="option-label">Số lượng:</span>
-                <div class="quantity-selector">
-                    <button class="qty-btn" id="qty-minus" aria-label="Giảm số lượng">-</button>
-                    <input type="number" id="qty-input" value="1" min="1">
-                    <button class="qty-btn" id="qty-plus" aria-label="Tăng số lượng">+</button>
+            <!-- CỘT TRÁI: ẢNH SẢN PHẨM -->
+            <div class="product-gallery">
+                <div class="main-image-box">
+                    <img src="" alt="Đang tải ảnh..." id="main-product-image">
+                    <div class="zoom-icon"><i class="fas fa-search-plus"></i></div>
                 </div>
-                <span class="stock-status" id="stock-status">Còn hàng</span>
-            </div>
-            
-            <div class="product-action-buttons">
-                <button class="btn-main btn-add-to-cart">
-                    <i class="fas fa-cart-plus"></i> Thêm vào giỏ hàng
-                </button>
-                <button class="btn-main btn-buy-now">Mua ngay</button>
-            </div>
-
-            <button class="btn-wishlist">
-                <i class="far fa-heart"></i> Thêm vào yêu thích
-            </button>
-        </div>
-
-    </main>
-
-    <section class="product-description-section" id="product-description">
-        <h2>Mô Tả Sản Phẩm</h2>
-        </section>
-
-    <section class="review-section">
-        <h2>Đánh Giá Từ Khách Hàng</h2>
-
-        <div class="review-summary">
-            <div class="summary-score">
-                <span class="score-number">4.9</span>
-                <span class="score-total">/ 5</span>
-            </div>
-            <div class="summary-stars">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star-half-alt"></i>
-            </div>
-            <span class="review-count">(633 đánh giá)</span>
-        </div>
-
-        <form class="review-form">
-            <h3>Viết đánh giá của bạn</h3>
-            <div class="form-group">
-                <label>Đánh giá của bạn:</label>
-                <div class="star-rating-input">
-                    <input type="radio" id="star5" name="rating" value="5"><label for="star5" title="5 sao"></label>
-                    <input type="radio" id="star4" name="rating" value="4"><label for="star4" title="4 sao"></label>
-                    <input type="radio" id="star3" name="rating" value="3"><label for="star3" title="3 sao"></label>
-                    <input type="radio" id="star2" name="rating" value="2"><label for="star2" title="2 sao"></label>
-                    <input type="radio" id="star1" name="rating" value="1"><label for="star1" title="1 sao"></label>
+                <div class="thumbnail-list" id="product-thumbnails">
+                    <!-- JS sẽ chèn ảnh nhỏ vào đây -->
                 </div>
             </div>
-            <div class="form-group">
-                <label for="comment-name">Tên của bạn:</label>
-                <input type="text" id="comment-name" class="form-control" required>
-            </div>
-            <div class="form-group">
-                <label for="comment-text">Nội dung đánh giá:</label>
-                <textarea id="comment-text" class="form-control" rows="4"></textarea>
-            </div>
-            <button type="submit" class="btn-main btn-buy-now">Gửi đánh giá</button>
-        </form>
 
-        <div class="review-list">
-            <h3>Tất cả đánh giá (2)</h3>
-            
-            <div class="review-item">
-                <div class="review-author">Nguyễn Văn A</div>
-                <div class="review-stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
+            <!-- CỘT PHẢI: THÔNG TIN -->
+            <div class="product-info-content">
+                
+                <h1 class="product-title" id="product-name">Đang tải thông tin...</h1>
+                
+                <div class="product-rating">
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <span class="review-count">(633 đánh giá)</span>
                 </div>
-                <p class="review-text">Sản phẩm tuyệt vời! Rất giống hình, chất liệu len tốt.</p>
-                <span class="review-date">Đã đăng vào 2 ngày trước</span>
-            </div>
-            
-            <div class="review-item">
-                <div class="review-author">Trần Thị B</div>
-                <div class="review-stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="far fa-star"></i> </div>
-                <p class="review-text">Màu sắc hơi khác 1 chút nhưng vẫn rất xinh nha shop.</p>
-                <span class="review-date">Đã đăng vào 1 tuần trước</span>
+
+                <div class="product-price-box">
+                    <div class="price-wrapper">
+                        <span class="current-price" id="product-price"></span>
+                        <span class="old-price" id="product-old-price"></span>
+                    </div>
+                    <span class="discount-badge" id="product-discount"></span>
+                </div>
+
+                <div class="product-divider"></div>
+
+                <!-- Chọn số lượng -->
+                <div class="product-actions-wrapper">
+                    <div class="quantity-control">
+                        <span class="label">Số lượng:</span>
+                        <div class="qty-input-group">
+                            <button class="qty-btn" id="qty-minus"><i class="fas fa-minus"></i></button>
+                            <input type="number" id="qty-input" value="1" min="1">
+                            <button class="qty-btn" id="qty-plus"><i class="fas fa-plus"></i></button>
+                        </div>
+                    </div>
+
+                    <div class="action-buttons">
+                        <button class="btn-main btn-add-to-cart">
+                            <i class="fas fa-shopping-bag"></i> Thêm vào giỏ
+                        </button>
+                        <button class="btn-main btn-buy-now">
+                            Mua ngay
+                        </button>
+                        <button class="btn-wishlist-icon btn-heart">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-policy">
+                    <div class="policy-item">
+                        <i class="fas fa-truck-fast"></i>
+                        <span>Miễn phí vận chuyển cho đơn từ 500k</span>
+                    </div>
+                    <div class="policy-item">
+                        <i class="fas fa-sync-alt"></i>
+                        <span>Đổi trả miễn phí trong 7 ngày</span>
+                    </div>
+                    <div class="policy-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Bảo hành chính hãng 12 tháng</span>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
+    <!-- ================= MÔ TẢ & BÌNH LUẬN ================= -->
+    <section class="product-bottom-section">
+        <div class="container">
+            <div class="section-box description-box">
+                <h2 class="section-title">Chi Tiết Sản Phẩm</h2>
+                <div class="description-content" id="product-description">
+                    <!-- JS sẽ điền nội dung vào đây -->
+                </div>
+            </div>
 
+            <!-- PHẦN BÌNH LUẬN (MỚI) -->
+            <div class="section-box comment-section">
+                <h2 class="section-title">Bình Luận</h2>
+                
+                <div class="comment-box-wrapper">
+                    <form class="comment-form">
+                        <textarea id="user-comment" placeholder="Mời bạn để lại bình luận về sản phẩm này..." required></textarea>
+                        <button type="submit" class="btn-submit-comment">Gửi Bình Luận</button>
+                    </form>
+                </div>
+
+                <!-- Danh sách bình luận (Hiện tại trống) -->
+                <div class="comment-list" id="comment-list">
+                    <p class="no-comments-text">Chưa có bình luận nào. Hãy là người đầu tiên bình luận!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= FOOTER ================= -->
     <section class="footer">
         <div class="box-container">
             <div class="box">
                 <h3>quick links</h3>
                 <a href="../index.html#home">home</a>
-                <a href="../index.html#about">about</a>
-                <a href="../index.html#products">products</a>
+                <a href="../about.html">about</a>
+                <a href="productpage.html">products</a>
                 <a href="../index.html#review">review</a>
                 <a href="../index.html#contact">contact</a>
             </div>
@@ -178,7 +163,7 @@
             <div class="box">
                 <h3>extra links</h3>
                 <a href="#">my account</a>
-                <a href="#">my order</a>
+                <a href="../order/order.html">my order</a>
                 <a href="#">my favorite</a>
             </div>
     
@@ -201,9 +186,8 @@
         <div class="credit"> created by <span> TNT </span> | all right reserved</div>
     </section>
 
-    
-    <script src="data.js"></script> 
-    
+    <!-- SCRIPTS -->
+    <script src="data.js"></script>
     <script src="product-detail.js"></script>
 
 </body>

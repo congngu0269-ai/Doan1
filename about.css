@@ -191,6 +191,7 @@
         flex-direction: column;
         gap: 2rem;
     }
+}
 .about-row .about-image {
   
     flex: none; 
