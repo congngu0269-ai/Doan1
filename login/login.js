@@ -18,11 +18,11 @@ async function createUser(username, password) {
   };
   try {
     const response = await fetch(url, {
-      method: "POST", // Chỉ định phương thức
+      method: "POST", 
       headers: {
-        "Content-Type": "application/json", // Bắt buộc: báo cho server biết mình gửi JSON
+        "Content-Type": "application/json", 
       },
-      body: JSON.stringify(dataToSend), // Bắt buộc: chuyển object JS thành chuỗi JSON
+      body: JSON.stringify(dataToSend), 
     });
 
     const result = await response.json();
@@ -36,7 +36,7 @@ async function createUser(username, password) {
 registerUserBtn.addEventListener("click", async () => {
   const emailValue = document.getElementById("register-email").value;
   const passwordValue = document.getElementById("register-password").value;
-  // 3. Kiểm tra xem dữ liệu có rỗng không (Validation đơn giản)
+
   if (!emailValue || !passwordValue) {
     return;
   }

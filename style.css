@@ -1,15 +1,13 @@
-/* ======================= */
-/* CÀI ĐẶT CHUNG & BIẾN */
-/* ======================= */
+
 :root {
-    /* BẢNG MÀU MỚI (XANH - KEM) */
-    --primary-pink: #4A70A9; /* Màu chính (Nút mua, giá tiền) -> Xanh đậm */
-    --pink: #8FABD4;         /* Màu phụ (Hover, icon) -> Xanh nhạt */
-    --light-pink: #EFECE3;   /* Màu nền nhẹ (Tag giảm giá) -> Màu kem */
+
+    --primary-pink: #4A70A9; 
+    --pink: #8FABD4;         
+    --light-pink: #EFECE3;   
     
-    --text-dark: #000000;    /* Màu chữ chính -> Đen */
-    --text-light: #555555;   /* Màu chữ phụ -> Xám đậm */
-    --border-color: #dcdcdc; /* Màu viền */
+    --text-dark: #000000;    
+    --text-light: #555555;   
+    --border-color: #dcdcdc; 
 }
 
 * {
@@ -64,85 +62,77 @@ section {
 body {
     background-color: #f9f9f9;
     
-    /* Thiết lập Flexbox để quản lý chiều cao trang */
+  
     display: flex;
     flex-direction: column;
     min-height: 100vh;
 }
 
-/* Sửa lại phần Footer để tách biệt rõ ràng */
+
 .footer {
-    /* Tự động đẩy xuống đáy nếu nội dung trang ngắn */
-    margin-top: auto; 
-    
+    margin-top: auto;
     background: #fff;
     padding: 2rem 9%;
-    
-    /* Tạo đường viền và bóng đổ để tách biệt giống Header */
     border-top: 1px solid rgba(0,0,0,0.1);
-    box-shadow: 0 -0.5rem 1.5rem rgba(0,0,0,0.05); /* Bóng đổ ngược lên trên */
+    box-shadow: 0 -0.5rem 1.5rem rgba(0,0,0,0.05); 
 }
 
-
-
-
-/* HEADER (XỬ LÝ CUỘN TRANG) */
 
 header {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    background: transparent; /* Ban đầu trong suốt để hiện ảnh nền */
+    background: transparent; 
     padding: 2rem 9%;
     display: flex;
     align-items: center;
     justify-content: space-between;
     z-index: 1000;
-    transition: all 0.3s ease; /* Hiệu ứng chuyển màu mượt mà */
+    transition: all 0.3s ease; 
 }
 
-/* --- TRẠNG THÁI KHI CUỘN (Class .scrolled) --- */
-/* Class này sẽ được JavaScript thêm vào khi bạn cuộn trang */
+
+
 header.scrolled {
-    background: #fff; /* Đổi nền sang TRẮNG */
-    box-shadow: 0 .5rem 1rem rgba(0,0,0,.1); /* Thêm bóng đổ */
-    padding: 1.5rem 9%; /* Thu gọn padding một chút */
+    background: #fff; 
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.1); 
+    padding: 1.5rem 9%; 
 }
 
-/* Đổi màu chữ sang ĐEN khi cuộn để nổi bật trên nền trắng */
+/* doi mau chu khi cuon */
 header.scrolled .logo, 
 header.scrolled .navbar a, 
 header.scrolled .icons a {
     color: var(--text-dark); 
 }
 
-/* Đổi màu nút menu mobile khi cuộn */
+
 header.scrolled .fa-bars {
     color: var(--text-dark);
     border-color: var(--text-dark);
 }
 
-/* Đổi màu dấu chấm logo khi cuộn */
+/* doi mau khi cuon */
 header.scrolled .logo span {
     color: var(--primary-pink); 
 }
 
-/* --- TRẠNG THÁI BAN ĐẦU (Ở trên cùng - Trong suốt) --- */
+/* --- header tren cung --- */
 header .logo {
     font-size: 3rem;
-    color: #fff; /* Chữ TRẮNG để nổi trên ảnh nền tối */
+    color: #fff; 
     font-weight: bolder;
 }
 
 header .logo span {
-    color: var(--light-pink); /* Dấu chấm màu kem */
+    color: var(--light-pink);
 }
 
 header .navbar a {
     font-size: 2rem;
     padding: 0 1.5rem;
-    color: #fff; /* Chữ TRẮNG */
+    color: #fff; 
 }
 
 header .navbar a:hover {
@@ -151,7 +141,7 @@ header .navbar a:hover {
 
 header .icons a {
     font-size: 3rem;
-    color: #fff; /* Icon TRẮNG */
+    color: #fff; 
     margin-left: 1.5rem;
 }
 
@@ -165,7 +155,7 @@ header #toggler {
 
 header .fa-bars {
     font-size: 4rem;
-    color: #fff; /* Nút menu TRẮNG */
+    color: #fff; 
     border-radius: .5rem;
     padding: .5rem .5rem;
     cursor: pointer;
@@ -173,14 +163,12 @@ header .fa-bars {
     display: none;
 }
 
-/* ======================= */
-/* HOME SECTION (BANNER) */
-/* ======================= */
+
 #home {
     display: flex;
     align-items: center;
     min-height: 100vh;
-    /* Lớp phủ tối + Ảnh nền mới */
+ 
     background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('./images/handmadecraft.avif') no-repeat;
     background-size: cover;
     background-position: center;
@@ -193,7 +181,7 @@ header .fa-bars {
 
 #home .content h3 {
     font-size: 6rem;
-    color: #fff; /* Chữ trắng */
+    color: #fff;
     text-transform: uppercase;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
@@ -230,7 +218,7 @@ header .fa-bars {
 }
 
 
-/* ABOUT SECTION */
+
 .about .row {
     display: flex;
     align-items: center;
@@ -283,7 +271,7 @@ header .fa-bars {
     line-height: 1.5;
 }
 
-/* ICONS SECTION */
+
 .icons-container {
     background: var(--light-pink);
     display: flex;
@@ -320,7 +308,7 @@ header .fa-bars {
     font-size: 1.3rem;
 }
 
-/* PRODUCTS SECTION */
+
 .products .box-container {
     display: flex;
     flex-wrap: wrap;
@@ -419,7 +407,7 @@ header .fa-bars {
     text-decoration: line-through;
 }
 
-/* REVIEW SECTION */
+
 .review .box-container {
     display: flex;
     flex-wrap: wrap;
@@ -479,7 +467,7 @@ header .fa-bars {
     color: var(--text-light);
 }
 
-/* CONTACT SECTION */
+
 .contact .row {
     display: flex;
     flex-wrap: wrap-reverse;
@@ -524,7 +512,7 @@ header .fa-bars {
     resize: none;
 }
 
-/* FOOTER SECTION */
+
 .footer .box-container {
     display: flex;
     flex-wrap: wrap;
@@ -574,7 +562,7 @@ header .fa-bars {
     color: var(--primary-pink);
 }
 
-/* MEDIA QUERIES */
+
 @media (max-width: 991px) {
     html {
         font-size: 55.5%;
@@ -582,7 +570,6 @@ header .fa-bars {
 
     header {
         padding: 2rem;
-        /* Trên mobile: Nền trắng, chữ đen luôn cho dễ nhìn */
         background: #fff; 
     }
     header .logo, header .navbar a, header .icons a, header .fa-bars {

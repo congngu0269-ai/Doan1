@@ -1,13 +1,13 @@
-/* ======================= */
-/* CÀI ĐẶT CHUNG */
-/* ======================= */
+
+
+
 :root {
-    --primary: #4A70A9;      /* Xanh chủ đạo */
-    --text: #333;            /* Màu chữ */
-    --light-text: #666;      /* Màu chữ nhạt */
-    --border: #e5e5e5;       /* Màu viền */
+    --primary: #4A70A9;      
+    --text: #333;           
+    --light-text: #666;     
+    --border: #e5e5e5;     
     --white: #fff;
-    --bg-light: #fcfcfc;     /* Nền sáng */
+    --bg-light: #fcfcfc;   
     --shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
 
@@ -17,7 +17,7 @@ body {
     color: var(--text);
 }
 
-/* Header (Fix cứng) */
+/* Header  */
 header {
     background-color: var(--white) !important;
     box-shadow: 0 2px 10px rgba(0,0,0,0.05) !important;
@@ -29,7 +29,7 @@ header .logo, header .navbar a, header .icons a { color: var(--text) !important;
 header .navbar a:hover, header .icons a:hover { color: var(--primary) !important; }
 
 
-/* LAYOUT CHÍNH */
+/* layout chính */
 
 .product-detail-container {
     max-width: 1100px; /* Thu hẹp lại chút cho gọn */
@@ -125,9 +125,9 @@ header .navbar a:hover, header .icons a:hover { color: var(--primary) !important
 }
 .product-policy i { color: var(--primary); width: 20px; text-align: center; margin-right: 5px; }
 
-/* PHẦN DƯỚI (Mô tả & Bình luận) */
+/* (Mô tả & Bình luận) */
 .product-bottom-section {
-    max-width: 800px; /* Thu hẹp lại để tập trung vào nội dung */
+    max-width: 800px; 
     margin: 0 auto 4rem;
     padding: 0 2rem;
 }
@@ -151,7 +151,7 @@ header .navbar a:hover, header .icons a:hover { color: var(--primary) !important
 .description-content p { margin-bottom: 1rem; }
 .description-content ul { padding-left: 2rem; list-style: disc; margin-bottom: 1rem; }
 
-/* --- PHẦN BÌNH LUẬN TỐI GIẢN --- */
+/* Bình luận */
 .comment-form {
     display: flex; flex-direction: column; gap: 1rem;
 }

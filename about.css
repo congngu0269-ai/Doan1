@@ -1,21 +1,20 @@
-/* Biến màu */
+
 :root {
-    --primary-pink: #4A70A9; /* Xanh đậm */
-    --pink: #8FABD4;         /* Xanh nhạt */
-    --light-pink: #EFECE3;   /* Màu kem */
-    
-    --text-dark: #000000;    /* Đen */
-    --text-light: #555555;   /* Xám đậm */
+    --primary-pink: #4A70A9; 
+    --pink: #8FABD4;       
+    --light-pink: #EFECE3;
+    --text-dark: #000000;   
+    --text-light: #555555;   
     --border-color: #dcdcdc;
 }
 
-/* --- ABOUT HERO BANNER --- */
+
 .about-hero {
     background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/handmadecraft.avif');
     background-size: cover;
     background-position: center;
     
-    /* Chiều cao banner */
+  
     height: 60vh; 
     
     display: flex;
@@ -25,10 +24,9 @@
     text-align: center;
     color: #fff;
     
-    /* QUAN TRỌNG: Đặt về 0 để banner tràn lên đỉnh, nằm dưới Header */
     margin-top: 0; 
     
-    /* Thêm khoảng đệm để nội dung chữ không bị Header che mất */
+ 
     padding-top: 8rem; 
 }
 
@@ -47,7 +45,7 @@
     text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
 }
 
-/* --- ABOUT CONTENT --- */
+
 .about-content {
     padding: 6rem 9%;
 }
@@ -59,7 +57,7 @@
     margin-bottom: 6rem;
 }
 
-/* Đảo ngược thứ tự cho hàng thứ 2 */
+
 .about-row.reverse {
     flex-direction: row-reverse;
 }
@@ -94,8 +92,7 @@
     display: inline-block;
 }
 
-/* Gạch chân tiêu đề */
-.about-text h2::after {
+.about-text h2::after   {
     content: '';
     position: absolute;
     bottom: -5px;
@@ -133,9 +130,9 @@
     font-size: 1.4rem;
 }
 
-/* --- CORE VALUES --- */
+
 .core-values {
-    background-color: var(--light-pink); /* Nền màu kem */
+    background-color: var(--light-pink);    
     padding: 6rem 9%;
     text-align: center;
 }
@@ -182,7 +179,7 @@
     line-height: 1.6;
 }
 
-/* --- RESPONSIVE --- */
+
 @media (max-width: 991px) {
     .about-hero h1 { font-size: 3.5rem; }
     .about-row, .about-row.reverse {

@@ -9,36 +9,33 @@ sidebarBtn.onclick = function() {
     sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
 }
 
-// === QUẢN LÝ TAB (ĐÃ SỬA LỖI) ===
+
 function switchTab(tabId, element) {
-    // 1. Ngăn chặn hành vi mặc định của thẻ 'a' (tránh load lại trang hoặc nhảy lên đầu)
+    // Ngăn chặn hành vi mặc định của thẻ 'a' (tránh load lại trang hoặc nhảy lên đầu)
     if(event) event.preventDefault();
 
-    // 2. Ẩn tất cả nội dung các tab
+    // Ẩn tất cả nội dung các tab
     const contents = document.querySelectorAll('.tab-content');
     contents.forEach(content => content.style.display = 'none');
 
-    // 3. Hiện tab được chọn
+    // Hiện tab được chọn
     const selectedTab = document.getElementById(tabId);
     if(selectedTab) {
         selectedTab.style.display = 'block';
     }
 
-    // 4. Xử lý class 'active' cho Menu Sidebar
-    // BƯỚC QUAN TRỌNG: Tìm tất cả các thẻ <a> trong sidebar và xóa class active
     const allLinks = document.querySelectorAll('.sidebar .nav-links li a');
     allLinks.forEach(link => {
         link.classList.remove('active');
     });
 
-    // Thêm class active cho thẻ <a> vừa được click (element)
+
     if(element) {
         element.classList.add('active');
     }
 }
 
-// === QUẢN LÝ SẢN PHẨM (GIẢ LẬP) ===
-// Khởi tạo dữ liệu mẫu nếu chưa có
+// Khởi tạo dữ liệu 
 let products = JSON.parse(localStorage.getItem('adminProducts')) || [
     { id: 1, name: "Chậu Hoa Mèo", price: "325.000", stock: 10, img: "https://via.placeholder.com/50" },
     { id: 2, name: "Bó Hoa Tulip", price: "499.000", stock: 5, img: "https://via.placeholder.com/50" }
@@ -47,9 +44,9 @@ let products = JSON.parse(localStorage.getItem('adminProducts')) || [
 const productBody = document.getElementById('product-list-body');
 const modal = document.getElementById('productModal');
 
-// Hàm render bảng sản phẩm
+// bảng sản phẩm
 function renderProducts() {
-    if(!productBody) return; // Kiểm tra nếu không ở tab sản phẩm thì bỏ qua
+    if(!productBody) return; 
     productBody.innerHTML = '';
     products.forEach((prod, index) => {
         let row = `
@@ -96,7 +93,7 @@ if(addForm) {
     });
 }
 
-// Hàm xóa sản phẩm
+
 function deleteProduct(index) {
     if(confirm("Bạn có chắc muốn xóa sản phẩm này?")) {
         products.splice(index, 1);
@@ -123,7 +120,5 @@ window.onclick = function(event) {
 
 // Chạy lần đầu khi tải trang
 document.addEventListener('DOMContentLoaded', () => {
-    // Mặc định hiển thị tab Dashboard nếu chưa chọn gì
-    // (CSS đã set display:block cho dashboard, nên JS này chỉ để render data nếu cần)
     renderProducts();
 });
