@@ -1,6 +1,6 @@
-/* ======================= */
+
 /* CÀI ĐẶT CHUNG & BIẾN */
-/* ======================= */
+
 :root {
   --primary-pink: #4A70A9; /* Màu chính (Nút mua, giá tiền) -> Xanh đậm */
     --pink: #8FABD4;         /* Màu phụ (Hover, icon) -> Xanh nhạt */
@@ -39,9 +39,9 @@ button { cursor: pointer; border: none; background: none; }
     color: inherit;
 }
 
-/* ======================= */
+
 /* HEADER */
-/* ======================= */
+
 header {
     position: fixed; top: 0; left: 0; right: 0;
     background: #fff; padding: 2rem 9%;
@@ -82,9 +82,9 @@ header .fa-bars {
     line-height: 1;
 }
 
-/* ======================= */
+
 /* BỐ CỤC CHÍNH */
-/* ======================= */
+
 .main-wrapper {
     transition: transform 0.5s ease;
 }
@@ -161,7 +161,7 @@ details[open] summary::after { transform: rotate(180deg); }
 }
 .open-filter-btn:hover { background: var(--primary-pink); color: #fff; }
 
-/* --- TRẠNG THÁI ĐÓNG SIDEBAR --- */
+/* TRẠNG THÁI ĐÓNG SIDEBAR  */
 .page-container.sidebar-closed .filter-sidebar { display: none; }
 .page-container.sidebar-closed .open-filter-btn { display: flex; }
 
@@ -202,9 +202,9 @@ details[open] summary::after { transform: rotate(180deg); }
 .btn-add-cart { flex: 2; font-size: 1.4rem; font-weight: bold; border-left: 1px solid rgba(255,255,255,0.2); border-right: 1px solid rgba(255,255,255,0.2); }
 .btn-heart.active i { font-weight: 900; color: yellow; }
 
-/* ======================= */
+
 /* FOOTER */
-/* ======================= */
+
 .footer { background: #fff; padding: 2rem 9%; margin-top: 4rem; }
 .footer .box-container { display: flex; flex-wrap: wrap; gap: 1.5rem; }
 .footer .box-container .box { flex: 1 1 25rem; }
@@ -215,11 +215,11 @@ details[open] summary::after { transform: rotate(180deg); }
 .footer .credit { text-align: center; padding: 1.5rem; margin-top: 1.5rem; padding-top: 2.5rem; font-size: 2rem; color: #333; border-top: .1rem solid rgba(0,0,0,.1); }
 .footer .credit span { color: var(--pink); }
 
-/* ======================= */
-/* GIỎ HÀNG TRƯỢT (MỚI) */
-/* ======================= */
 
-/* Lớp phủ (Làm mờ nền khi mở giỏ hàng) */
+/* GIỎ HÀNG TRƯỢT (MỚI) */
+
+
+/* Lớp phủ lên giỏ hàng  */
 body.showCart::before {
     content: '';
     position: fixed;
@@ -376,9 +376,9 @@ body.showCart .cart-tab {
     background-color: #c2185b;
 }
 
-/* ======================= */
+
 /* RESPONSIVE */
-/* ======================= */
+
 @media (max-width: 991px) {
     html { font-size: 55%; }
     header { padding: 2rem; }

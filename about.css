@@ -1,4 +1,4 @@
-/* Biến màu (Đồng bộ với style.css mới) */
+/* Biến màu */
 :root {
     --primary-pink: #4A70A9; /* Xanh đậm */
     --pink: #8FABD4;         /* Xanh nhạt */
@@ -11,8 +11,6 @@
 
 /* --- ABOUT HERO BANNER --- */
 .about-hero {
-    /* Ảnh nền + Lớp phủ tối để làm nổi Header trắng */
-    /* Thay 'images/image_fbc250.jpg' bằng đường dẫn ảnh banner của bạn */
     background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/handmadecraft.avif');
     background-size: cover;
     background-position: center;

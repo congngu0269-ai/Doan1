@@ -86,7 +86,7 @@ const productsDB = {
     },
 
     
-    "nhan-bac": {
+    "nhan-bac-sterling": {
         id: "nhan-bac-sterling",
         name: "Nhẫn bạc Sterling",
         price: "540.000 đ",
@@ -102,10 +102,7 @@ const productsDB = {
         description: `
             <p>Chiếc nhẫn bạc Sterling được làm thủ công đặt trong đó là tâm huyết của người thợ.</p>
             <ul>
-                <li>Chất liệu: Giấy nhún.</li>
-                <li>Giữ form tốt.</li>
-                <li>Vân giấy (Nếp nhăn): Bề mặt sần nhẹ của giấy nhún tạo cảm giác giống như gân của cánh hoa tự nhiên.</li>
-                <li>Làm thủ công 100%.</li>
+                <li>Chất liệu: Bạc Sterling.</li>
             </ul>
         `
     },

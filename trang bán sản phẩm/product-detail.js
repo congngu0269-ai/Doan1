@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Tìm sản phẩm trong kho dữ liệu
     const productData = productsDB[productId];
 
-    // === 3. HIỂN THỊ DỮ LIỆU LÊN TRANG ===
+    // 3. HIỂN THỊ DỮ LIỆU LÊN TRANG 
     if (productData) {
         // Cập nhật tiêu đề tab trình duyệt
         document.title = `${productData.name} - HM Shop`;
@@ -94,10 +94,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-    // =======================================================
+
     // CÁC CHỨC NĂNG KHÁC (Tăng/Giảm/Thêm giỏ hàng)
     // (Chỉ chạy khi có dữ liệu sản phẩm)
-    // =======================================================
+   
 
     const qtyInput = document.getElementById('qty-input');
     const qtyPlus = document.getElementById('qty-plus');

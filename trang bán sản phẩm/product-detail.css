@@ -28,9 +28,9 @@ header {
 header .logo, header .navbar a, header .icons a { color: var(--text) !important; }
 header .navbar a:hover, header .icons a:hover { color: var(--primary) !important; }
 
-/* ======================= */
+
 /* LAYOUT CHÍNH */
-/* ======================= */
+
 .product-detail-container {
     max-width: 1100px; /* Thu hẹp lại chút cho gọn */
     margin: 10rem auto 4rem; /* Đẩy xuống tránh header */
@@ -125,9 +125,7 @@ header .navbar a:hover, header .icons a:hover { color: var(--primary) !important
 }
 .product-policy i { color: var(--primary); width: 20px; text-align: center; margin-right: 5px; }
 
-/* ======================= */
 /* PHẦN DƯỚI (Mô tả & Bình luận) */
-/* ======================= */
 .product-bottom-section {
     max-width: 800px; /* Thu hẹp lại để tập trung vào nội dung */
     margin: 0 auto 4rem;
