@@ -1,13 +1,14 @@
-
-
-
+/* ======================= */
+/* CÀI ĐẶT CHUNG & BIẾN */
+/* ======================= */
 :root {
-  --primary-pink: #4A70A9; 
-    --pink: #8FABD4;        
-    --light-pink: #EFECE3;  
-    --text-dark: #000000;   
-    --text-light: #555555;   
-    --border-color: #dcdcdc; 
+  --primary-pink: #4A70A9; /* Màu chính (Nút mua, giá tiền) -> Xanh đậm */
+    --pink: #8FABD4;         /* Màu phụ (Hover, icon) -> Xanh nhạt */
+    --light-pink: #EFECE3;   /* Màu nền nhẹ (Tag giảm giá) -> Màu kem */
+    
+    --text-dark: #000000;    /* Màu chữ chính -> Đen */
+    --text-light: #555555;   /* Màu chữ phụ -> Xám đậm */
+    --border-color: #dcdcdc; /* Màu viền */
 }
 
 * {
@@ -26,21 +27,21 @@ html {
 
 body { 
     background-color: #f9f9f9; 
-    position: relative; 
-    overflow-x: hidden; 
+    position: relative; /* Cần cho hiệu ứng trượt */
+    overflow-x: hidden; /* Ngăn thanh cuộn ngang khi trượt */
 }
 ul { list-style: none; }
 button { cursor: pointer; border: none; background: none; }
 
-
+/* Style cho link bọc thẻ sản phẩm */
 .product-link-wrapper {
     text-decoration: none;
     color: inherit;
 }
 
-
-
-
+/* ======================= */
+/* HEADER */
+/* ======================= */
 header {
     position: fixed; top: 0; left: 0; right: 0;
     background: #fff; padding: 2rem 9%;
@@ -59,7 +60,7 @@ header .fa-bars {
     padding: .5rem .5rem; cursor: pointer;
     border: .1rem solid rgba(0,0,0,.3); display: none;
 }
-
+/* Cập nhật số lượng trên icon giỏ hàng */
 .icons .fa-shopping-cart {
     position: relative;
 }
@@ -81,9 +82,9 @@ header .fa-bars {
     line-height: 1;
 }
 
-
-
-
+/* ======================= */
+/* BỐ CỤC CHÍNH */
+/* ======================= */
 .main-wrapper {
     transition: transform 0.5s ease;
 }
@@ -91,13 +92,13 @@ header .fa-bars {
 .page-container {
     display: flex;
     max-width: 1400px;
-    margin: 11rem auto 4rem;
+    margin: 11rem auto 4rem; /* 11rem để tránh header */
     padding: 0 2rem;
     gap: 2.5rem;
     align-items: flex-start; 
 }
 
-
+/* --- SIDEBAR --- */
 .filter-sidebar {
     flex: 0 0 250px; 
     background: #fff;
@@ -143,15 +144,15 @@ details[open] summary::after { transform: rotate(180deg); }
 }
 .apply-filter-btn:hover { background-color: #c2185b; }
 
-
+/* --- KHU VỰC CHÍNH --- */
 .product-main-area {
-    flex: 1; 
+    flex: 1; /* Tự động chiếm TẤT CẢ không gian còn lại */
     display: flex; flex-direction: column;
 }
 
-
+/* Nút mở lại bộ lọc */
 .open-filter-btn {
-    display: none; 
+    display: none; /* Mặc định ẩn */
     width: fit-content; margin-bottom: 2rem; padding: 1rem 2rem;
     background: #fff; border: 2px solid var(--primary-pink);
     color: var(--primary-pink); border-radius: 5rem;
@@ -160,18 +161,18 @@ details[open] summary::after { transform: rotate(180deg); }
 }
 .open-filter-btn:hover { background: var(--primary-pink); color: #fff; }
 
-
+/* --- TRẠNG THÁI ĐÓNG SIDEBAR --- */
 .page-container.sidebar-closed .filter-sidebar { display: none; }
 .page-container.sidebar-closed .open-filter-btn { display: flex; }
 
-
+/* --- LƯỚI SẢN PHẨM --- */
 .product-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 2.5rem;
 }
 
-/* product */
+/* --- THẺ SẢN PHẨM --- */
 .product-card {
     background: #fff; border-radius: 1rem;
     box-shadow: 0 .5rem 1.5rem rgba(0,0,0,.08);
@@ -201,9 +202,9 @@ details[open] summary::after { transform: rotate(180deg); }
 .btn-add-cart { flex: 2; font-size: 1.4rem; font-weight: bold; border-left: 1px solid rgba(255,255,255,0.2); border-right: 1px solid rgba(255,255,255,0.2); }
 .btn-heart.active i { font-weight: 900; color: yellow; }
 
-
-/* footer */
-
+/* ======================= */
+/* FOOTER */
+/* ======================= */
 .footer { background: #fff; padding: 2rem 9%; margin-top: 4rem; }
 .footer .box-container { display: flex; flex-wrap: wrap; gap: 1.5rem; }
 .footer .box-container .box { flex: 1 1 25rem; }
@@ -214,9 +215,11 @@ details[open] summary::after { transform: rotate(180deg); }
 .footer .credit { text-align: center; padding: 1.5rem; margin-top: 1.5rem; padding-top: 2.5rem; font-size: 2rem; color: #333; border-top: .1rem solid rgba(0,0,0,.1); }
 .footer .credit span { color: var(--pink); }
 
+/* ======================= */
+/* GIỎ HÀNG TRƯỢT (MỚI) */
+/* ======================= */
 
-
-/* Lớp phủ lên giỏ hàng  */
+/* Lớp phủ (Làm mờ nền khi mở giỏ hàng) */
 body.showCart::before {
     content: '';
     position: fixed;
@@ -228,11 +231,12 @@ body.showCart::before {
     z-index: 1001;
 }
 
+/* Wrapper chính để đẩy sang trái */
 body.showCart .main-wrapper {
     transform: translateX(-400px);
 }
 
-/* cart */
+/* Giỏ hàng (cart-tab) */
 .cart-tab {
     width: 400px;
     max-width: 90vw;
@@ -240,10 +244,10 @@ body.showCart .main-wrapper {
     color: var(--text-dark);
     position: fixed;
     top: 0;
-    right: -400px; 
+    right: -400px; /* Mặc định ẩn */
     bottom: 0;
     display: grid;
-    grid-template-rows: 70px 1fr 140px;
+    grid-template-rows: 70px 1fr 140px; /* Header, Nội dung, Footer */
     transition: right 0.5s ease;
     z-index: 1002;
     box-shadow: -10px 0 20px rgba(0, 0, 0, 0.1);
@@ -307,9 +311,9 @@ body.showCart .cart-tab {
     justify-content: center;
     cursor: pointer;
     font-size: 1.6rem;
-    user-select: none; 
+    user-select: none; /* Ngăn bôi đen chữ */
 }
-.cart-item .quantity span:nth-child(2) {
+.cart-item .quantity span:nth-child(2) { /* Số lượng */
     cursor: auto;
     font-size: 1.5rem;
     border-left: 1px solid var(--border-color);
@@ -372,9 +376,9 @@ body.showCart .cart-tab {
     background-color: #c2185b;
 }
 
-
+/* ======================= */
 /* RESPONSIVE */
-
+/* ======================= */
 @media (max-width: 991px) {
     html { font-size: 55%; }
     header { padding: 2rem; }
