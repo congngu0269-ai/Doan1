@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sản Phẩm - HM Shop</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="productpage.css">
+</head>
+<body class=""> <div class="main-wrapper">
+
+        <header>
+        <input type="checkbox" name="" id="toggler">
+        <label for="toggler" class="fas fa-bars"></label>
+    
+        <a href="../index.html" class="logo">HM Shop<a>
+    
+        <nav class="navbar">
+            <a href="../index.html#home">Trang chủ</a>
+            <a href="../index.html#about">Giới thiệu</a>
+            <a href="../index.html#products">Sản phẩm</a>
+            <a href="../index.html#review">Đánh giá</a>
+            <a href="../index.html#contact">Liên hệ</a>
+        </nav>
+    
+        <div class="icons">
+            <a href="#" class="fas fa-heart"></a>
+            
+            <a href="#" class="fas fa-shopping-cart" id="cart-icon-btn">
+                <span class="cart-count">0</span>
+            </a>
+            
+            <a href="../login/login.html" class="fas fa-user"></a>
+        </div>
+    </header>
+
+        <div class="page-container">
+
+            <aside class="filter-sidebar">
+                <h2 id="close-sidebar-btn" title="Bấm để thu gọn bộ lọc">
+                    <i class="fas fa-filter"></i> Bộ Lọc
+                </h2>
+                
+                <div class="filter-content">
+                    <h3>Tất cả danh mục</h3>
+                
+                    <details open>
+                        <summary>Trang sức</summary>
+                        <ul>
+                            <li><input type="checkbox" id="f-khuyen-tai" data-filter="khuyen-tai" value="1"><label for="f-khuyen-tai">Khuyên tai</label></li>
+                            <li><input type="checkbox" id="f-vong-co" data-filter="vong-co" value="2"><label for="f-vong-co">Vòng cổ</label></li>
+                            <li><input type="checkbox" id="f-vong-tay" data-filter="vong-tay" value="3"><label for="f-vong-tay">Vòng tay</label></li>
+                            <li><input type="checkbox" id="f-nhan" data-filter="nhan" value="4"><label for="f-nhan">Nhẫn</label></li>
+                        </ul>
+                    </details>
+                    
+                    <details open>
+                        <summary>Hoa</summary>
+                        <ul>
+                            <li><input type="checkbox" id="f-hoa-giay" data-filter="hoa-giay" value="5"><label for="f-hoa-giay">Hoa giấy</label></li>
+                            <li><input type="checkbox" id="f-hoa-sap" data-filter="hoa-sap" value="6"><label for="f-hoa-sap">Hoa sáp</label></li>
+                            <li><input type="checkbox" id="f-hoa-len" data-filter="hoa-len" value="7"><label for="f-hoa-len">Hoa len</label></li>
+                            <li><input type="checkbox" id="f-hoa-lua" data-filter="hoa-lua" value="8"><label for="f-hoa-lua">Hoa lụa</label></li>
+                        </ul>
+                    </details>
+    
+                    <details open>
+                        <summary>Quà tặng</summary>
+                        <ul>
+                            <li><input type="checkbox" id="f-tui" data-filter="tui" value="9"><label for="f-tui">Túi</label></li>
+                            <li><input type="checkbox" id="f-so-tay" data-filter="so-tay" value="10"><label for="f-so-tay">Sổ tay</label></li>
+                            <li><input type="checkbox" id="f-tuong" data-filter="tuong" value="11"><label for="f-tuong">Tượng</label></li>
+                            <li><input type="checkbox" id="f-lo-thuy-tinh" data-filter="lo-thuy-tinh" value="12"><label for="f-lo-thuy-tinh">Lọ thuỷ tinh</label></li>
+                        </ul>
+                    </details>
+                    <details>
+                        <summary>Thiệp thủ công</summary>
+                        <ul>
+                            <li><input type="checkbox" id="f-thiep-tinh-yeu" data-filter="thiep-tinh-yeu" value="13"><label for="f-thiep-tinh-yeu">Thiệp tình yêu</label></li>
+                            <li><input type="checkbox" id="f-thiep-cam-on" data-filter="thiep-cam-on" value="14"><label for="f-thiep-cam-on">Thiệp cảm ơn, xin lỗi</label></li>
+                            <li><input type="checkbox" id="f-thiep-chuc-mung" data-filter="thiep-chuc-mung" value="15"><label for="f-thiep-chuc-mung">Thiệp chúc mừng, tạm biệt</label></li>
+                            <li><input type="checkbox" id="f-thiep-tet" data-filter="thiep-tet" value="16"><label for="f-thiep-tet">Thiệp Giáng Sinh, Tết</label></li>
+                        </ul>
+                    </details>
+
+                    <button class="apply-filter-btn" id="apply-filter">ÁP DỤNG</button>
+                </div>
+            </aside>
+
+            <main class="product-main-area">
+                <button id="open-filter-btn" class="open-filter-btn">
+                    <i class="fas fa-filter"></i> Hiện Bộ Lọc
+                </button>
+
+                <div class="product-grid" id="product-grid">
+                    <!-- JS fill value-->
+                </div>
+            </main>
+        </div>
+
+        <section class="footer">
+            <div class="box-container">
+                <div class="box">
+                    <h3>quick links</h3>
+                    <a href="../index.html#home">home</a>
+                    <a href="../index.html#about">about</a>
+                    <a href="../index.html#products">products</a>
+                    <a href="../index.html#review">review</a>
+                    <a href="../index.html#contact">contact</a>
+                </div>
+                <div class="box">
+                    <h3>extra links</h3>
+                    <a href="#">my account</a>
+                    <a href="#">my order</a>
+                    <a href="#">my favorite</a>
+                </div>
+                <div class="box">
+                    <h3>locations</h3>
+                    <a href="#">Ha Noi</a>
+                    <a href="#">Tp.HCM</a>
+                    <a href="#">Thanh Hoa</a>
+                    <a href="#">Nam Dinh</a>
+                </div>
+                <div class="box">
+                    <h3>contact info</h3>
+                    <a href="#"><i class="fa-brands fa-facebook"></i> Facebook</a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i> Instagram</a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i> Twitter</a>
+                </div>
+            </div>
+            <div class="credit"> created by <span> TNT </span> | all right reserved</div>
+        </section>
+
+    </div> 
+    
+    <div class="cart-tab">
+        <h1>Giỏ Hàng</h1>
+        
+        <div class="list-cart">
+            </div>
+        
+        <div class="cart-summary">
+            <div class="total-price">
+                <span>Tổng cộng:</span>
+                <span id="cart-total-price">$0.00</span>
+            </div>
+        </div>
+
+        <div class="cart-buttons">
+            <button class="btn-close-cart" id="close-cart-btn">ĐÓNG</button>
+            <button class="btn-checkout" id="checkout-cart-btn">THANH TOÁN</button>
+        </div>
+    </div>
+
+    <script type="module" src="productpage.js"></script>
+</body>
+</html>

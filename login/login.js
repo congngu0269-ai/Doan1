@@ -1,3 +1,5 @@
+import { apiRequest } from "../common/common.js";
+
 const container = document.getElementById("container");
 const registerBtn = document.getElementById("register");
 const loginBtn = document.getElementById("login");
@@ -13,30 +15,20 @@ loginBtn.addEventListener("click", () => {
 });
 
 async function createUser(username, password) {
-  const url = "http://localhost:3000/user/create";
-  const dataToSend = {
-    username: username,
-    password: password,
-  };
-  try {
-    const response = await fetch(url, {
-      method: "POST", // Chỉ định phương thức
-      headers: {
-        "Content-Type": "application/json", // Bắt buộc: báo cho server biết mình gửi JSON
-      },
-      body: JSON.stringify(dataToSend), // Bắt buộc: chuyển object JS thành chuỗi JSON
-    });
-
-    const result = await response.json();
-    if (!response.ok) {
-      throw new Error(result.message || "Failed to create user");
-    }
-  } catch (error) {
-    console.error("error:", error);
-  }
-  container.classList.remove("active");
+  await apiRequest({
+    url: "user/create",
+    method: "POST",
+    data: { username, password },
+    onSuccess: () => {
+      // Sign up successful, switch to login view
+      container.classList.remove("active");
+    },
+    onError: (err) => {
+      console.error("error:", error);
+      alert("User created failed");
+    },
+  });
 }
-
 registerUserBtn.addEventListener("click", async () => {
   const emailValue = document.getElementById("register-email").value;
   const passwordValue = document.getElementById("register-password").value;
@@ -48,30 +40,24 @@ registerUserBtn.addEventListener("click", async () => {
 });
 
 async function login(username, password) {
-  const url = "http://localhost:3000/user/get";
-  const dataToSend = {
-    username: username,
-    password: password,
-  };
-  try {
-    const response = await fetch(url, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(dataToSend),
-    });
-
-    const userId = await response.json();
-    if (!response.ok) {
-      throw new Error(result.message || "Failed to login user");
-    }
-    localStorage.setItem("user", userId);
-    window.location.href = "/";
-  } catch (error) {
-    alert("Login failed");
-    console.error("error:", error);
-  }
+  await apiRequest({
+    url: "user/login",
+    method: "POST",
+    data: { username, password },
+    onSuccess: ({ access_token, role }) => {
+      // Store the access token and redirect to home page
+      localStorage.setItem("access_token", access_token);
+      if (role === 1) {
+        window.location.href = "/admin/admin.html";
+      } else {
+        window.location.href = "/";
+      }
+    },
+    onError: (err) => {
+      console.error("login error:", err);
+      alert("Login failed");
+    },
+  });
 }
 
 loginUserBtn.addEventListener("click", async () => {

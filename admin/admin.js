@@ -1,5 +1,13 @@
 let sidebar = document.querySelector(".sidebar");
 let sidebarBtn = document.querySelector(".sidebarBtn");
+let logoutBtn = document.getElementById("logout-btn");
+
+logoutBtn.addEventListener("click", logout);
+
+function logout() {
+    localStorage.removeItem("access_token");
+    window.location.href = "/login/login.html";
+}
 
 sidebarBtn.onclick = function() {
   sidebar.classList.toggle("active");

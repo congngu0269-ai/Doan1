@@ -123,8 +123,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid var(--border-color);
-    border-radius: 5px;
     width: 100px;
     margin: 0 auto;
 }
@@ -140,13 +138,9 @@
 }
 .qty-btn:hover { background: #f1f1f1; color: var(--text-dark); }
 .qty-value {
-    width: 40px;
-    height: 30px;
     text-align: center;
     font-size: 1.6rem;
     border: none;
-    border-left: 1px solid var(--border-color);
-    border-right: 1px solid var(--border-color);
     padding: 0;
 }
 

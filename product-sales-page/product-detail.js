@@ -1,65 +1,37 @@
+import { apiRequest } from "../common/common.js";
+
 async function fetchProductData(productId) {
-  try {
-    let url = `http://localhost:3000/goods-details?goodsId=${productId}`;
-    const response = await fetch(url);
-    const product = await response.json();
-    if (!response.ok) {
-      throw new Error("Failed to fetch product");
-    }
-    return product;
-  } catch (error) {
-    alert("Lỗi khi tải sản phẩm. Vui lòng thử lại sau.");
-    console.error("Error fetching product:", error);
-    return null;
-  }
+  return await apiRequest({
+    url: "goods-details",
+    params: { goodsId: productId },
+    method: "GET",
+    onSuccess: (data) => {
+      console.log("Product data fetched:", data);
+      return data;
+    },
+    onError: (err) => {
+      console.error("Error fetching product data:", err);
+      alert("Lỗi khi tải sản phẩm. Vui lòng thử lại sau.");
+    },
+    requireAuth: true,
+  });
 }
 
 async function addToCart(productId, amount) {
-  const userId = localStorage.getItem("user");
-  if (!userId) {
-    alert("Vui lòng đăng nhập để thêm sản phẩm vào giỏ hàng.");
-    window.location.href = "/login/login.html";
-    return;
-  }
-  try {
-    const response = await fetch("http://localhost:3000/cart/create", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        customerId: userId,
-        goodsId: productId,
-        amount: amount,
-      }),
-    });
-    const result = await response.json();
-    if (!response.ok) {
-      throw new Error(result.message || "Failed to add product to cart");
-    }
-    alert("Sản phẩm đã được thêm vào giỏ hàng!");
-  } catch (error) {
-    console.error("Error adding product to cart:", error);
-    alert("Lỗi khi thêm sản phẩm vào giỏ hàng. Vui lòng thử lại sau.");
-  }
-}
-
-async function fetchAllCartProducts(customerId) {
-  console.log("customerId:", customerId);
-  try {
-    const url = `http://localhost:3000/cart/get?customerId=${customerId}`;
-    const response = await fetch(url);
-    const cartProducts = await response.json();
-    if (!response.ok) {
-      throw new Error("Failed to fetch all cart products");
-    }
-    console.log("cartProducts:", cartProducts);
-    return cartProducts;
-  } catch (error) {
-    alert("Lỗi khi tải sản phẩm. Vui lòng thử lại sau.");
-    console.error("Error fetching all cart products:", error);
-    return [];
-  }
+  await apiRequest({
+    url: "cart/create",
+    method: "POST",
+    data: { productId, amount },
+    onSuccess: (data) => {
+      console.log("Product added to cart:", data);
+      alert("Sản phẩm đã được thêm vào giỏ hàng!");
+    },
+    onError: (err) => {
+      console.error("Error adding product to cart:", err);
+      alert("Lỗi khi thêm sản phẩm vào giỏ hàng. Vui lòng thử lại sau.");
+    },
+    requireAuth: true,
+  });
 }
 
 document.addEventListener("DOMContentLoaded", async () => {
@@ -70,9 +42,9 @@ document.addEventListener("DOMContentLoaded", async () => {
   // === 2. TÌM DỮ LIỆU SẢN PHẨM ===
   let productData = null;
   if (productId) {
+    console.log("Product ID:", productId);
     productData = await fetchProductData(productId);
   }
-  console.log("helloN2");
 
   // === 4. LOGIC CỘNG/TRỪ SỐ LƯỢNG ===
   const qtyInput = document.getElementById("qty-input");
@@ -95,7 +67,6 @@ document.addEventListener("DOMContentLoaded", async () => {
       }
     });
   }
-  console.log("helloN1");
 
   // === 5. LOGIC THÊM VÀO GIỎ HÀNG ===
   const addToCartButton = document.getElementById("add-to-cart-button");
@@ -105,63 +76,27 @@ document.addEventListener("DOMContentLoaded", async () => {
       await addToCart(productId, parseInt(qtyInput.value));
     });
   }
-  console.log("helloN");
 
+  console.log("H1", productData);
   // === 3. BƠM (INJECT) DỮ LIỆU VÀO TRANG ===
   if (productData) {
+  console.log("H1.2")
+
     // Cập nhật tiêu đề trang
     document.title = `${productData.goodName} - HM Shop`;
-  console.log("helloM");
+  console.log("H2")
 
     // Cập nhật thông tin chính
     document.getElementById("product-name").textContent = productData.goodName;
+  console.log("H3")
+
     document.getElementById("product-price").textContent =
       productData.price.toLocaleString("en-US") + " VND";
-
-    if (productData.oldPrice) {
-      document.getElementById("product-old-price").textContent =
-        productData.oldPrice;
-    } else {
       document.getElementById("product-old-price").style.display = "none";
-    }
-  console.log("helloM1");
-
-    if (productData.discount) {
-      document.getElementById("product-discount").textContent =
-        productData.discount;
-    } else {
       document.getElementById("product-discount").style.display = "none";
-    }
-  console.log("helloM2");
 
     // Cập nhật ảnh chính
     document.getElementById("main-product-image").src = productData.image;
-  console.log("helloM21");
-
-    // Cập nhật ảnh thumbnail
-    const thumbnailContainer = document.getElementById("product-thumbnails");
-    thumbnailContainer.innerHTML = ""; // Xóa ảnh mẫu
-  console.log("helloM22");
-
-//     productData.thumbnails.forEach((thumbSrc, index) => {
-//       const img = document.createElement("img");
-//       img.src = thumbSrc;
-//       img.alt = `Thumbnail ${index + 1}`;
-//       img.classList.add("thumbnail-img");
-//       if (index === 0) {
-//         img.classList.add("active"); // Kích hoạt ảnh đầu tiên
-//       }
-//       thumbnailContainer.appendChild(img);
-//   console.log("helloM23");
-
-//     });
-  console.log("helloM3");
-
-    // Cập nhật mô tả
-    const descSection = document.getElementById("product-description");
-    // Xóa nội dung "Đang tải" cũ (nếu có) và thêm mô tả mới
-    descSection.innerHTML = `<h2>Mô Tả Sản Phẩm</h2>` + productData.description;
-  console.log("helloM4");
 
   } else {
     // Nếu không tìm thấy ID sản phẩm, báo lỗi và DỪNG LẠI
@@ -191,7 +126,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     closeSidebarBtn.title = "Bấm để thu gọn bộ lọc";
   }
 
-    // =======================================================
+  // =======================================================
   // CODE BÊN DƯỚI SẼ CHỈ CHẠY NẾU productData TỒN TẠI
   // =======================================================
 
@@ -208,4 +143,10 @@ document.addEventListener("DOMContentLoaded", async () => {
       });
     });
   }
-});
+
+  const cartIcon = document.getElementById("cart-icon-btn");
+  cartIcon.addEventListener("click", async (e) => {
+    e.preventDefault();
+    window.location.href = "../cart/cart.html";
+  });
+})
