@@ -1,0 +1,38 @@
+/* Kế thừa từ admin.css */
+
+/* Status Badge Styles */
+.status {
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.status.pending {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.status.shipping {
+    background: #cce5ff;
+    color: #004085;
+}
+
+.status.delivered {
+    background: #d4edda;
+    color: #155724;
+}
+
+.status.cancelled {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+/* Payment Status */
+.payment-status {
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+.pay-cod { color: #555; }
+.pay-paid { color: #2ecc71; }

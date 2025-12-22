@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <title>Quản Lý Đơn Hàng - Admin</title>
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link rel="stylesheet" href="admin.css"> <!-- Style chung -->
+    <link rel="stylesheet" href="admin-orders.css"> <!-- Style riêng cho trang này -->
+</head>
+<body>
+   <input type="checkbox" id="menu-toggle">
+    
+    <!-- SIDEBAR (Đồng bộ với Dashboard) -->
+    <div class="sidebar">
+        <div class="side-header">
+            <h3>M<span>odern</span></h3>
+        </div>
+        
+        <div class="side-content">
+            <div class="profile">
+                <div class="profile-img bg-img" style="background-image: url(../images/admin.jpg)"></div>
+                <h4>TNT</h4>
+                <small>Admin</small>
+            </div>
+
+            <div class="side-menu">
+                <ul>
+                    <li>
+                        <a href="admin.html">
+                            <span class="las la-home"></span>
+                            <small>Dashboard</small>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="admin-products.html">
+                            <span class="las la-box"></span>
+                            <small>Sản Phẩm</small>
+                        </a>
+                    </li>
+                    <li>
+                        <!-- Trang hiện tại (active) -->
+                        <a href="admin-orders.html" class="active">
+                            <span class="las la-shopping-cart"></span>
+                            <small>Đơn Hàng</small>
+                        </a>
+                    </li>
+                  
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <!-- MAIN CONTENT -->
+    <div class="main-content">
+        
+        <header>
+            <div class="header-content">
+                <label for="menu-toggle">
+                    <span class="las la-bars"></span>
+                </label>
+                
+                <div class="header-menu">
+                    <div class="user">
+                        <div class="bg-img" style="background-image: url(img/1.jpeg)"></div>
+                        <span class="las la-power-off"></span>
+                        <span>Logout</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+        
+        <main>
+            <div class="page-header">
+                <h1>Quản Lý Đơn Hàng</h1>
+                <small>Home / Đơn Hàng</small>
+            </div>
+            
+            <div class="page-content">
+                <div class="records table-responsive">
+
+                    <div class="record-header">
+                        <div class="add">
+                            <span>Lọc theo trạng thái</span>
+                            <select id="status-filter">
+                                <option value="all">Tất cả đơn hàng</option>
+                                <option value="pending">Chờ xử lý</option>
+                                <option value="shipping">Đang giao</option>
+                                <option value="delivered">Đã giao</option>
+                                <option value="cancelled">Đã hủy</option>
+                            </select>
+                        </div>
+
+                        <div class="browse">
+                           <input type="search" placeholder="Tìm mã đơn, tên khách..." class="record-search" id="search-order">
+                        </div>
+                    </div>
+
+                    <div>
+                        <table width="100%">
+                            <thead>
+                                <tr>
+                                    <th>MÃ ĐƠN</th>
+                                    <th>KHÁCH HÀNG</th>
+                                    <th>NGÀY ĐẶT</th>
+                                    <th>TỔNG TIỀN</th>
+                                    <th>TRẠNG THÁI</th>
+                                    <th>THANH TOÁN</th>
+                             
+                                </tr>
+                            </thead>
+                            <tbody id="order-table-body">
+                             
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Script -->
+    <script src="admin-data.js"></script> <!-- Dùng chung data -->
+    <script src="admin-orders.js"></script>
+</body>
+</html>
