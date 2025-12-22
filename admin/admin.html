@@ -1,178 +1,190 @@
 <!DOCTYPE html>
 <html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,maximum-scale=1"
+    />
     <title>Admin Dashboard - HM Shop</title>
-    <link rel="stylesheet" href="admin.css">
-    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
-</head>
-<body>
-   <input type="checkbox" id="menu-toggle">
+    <link rel="stylesheet" href="admin.css" />
+    <link
+      rel="stylesheet"
+      href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css"
+    />
+  </head>
+  <body>
+    <input type="checkbox" id="menu-toggle" />
     <div class="sidebar">
-        <div class="side-header">
-            <h3>M<span>odern</span></h3>
-        </div>
-        
-        <div class="side-content">
-            <div class="profile">
-                <div class="profile-img bg-img" style="background-image: url(../images/admin.jpg)"></div>
-                <h4>TNT</h4>
-                <small>Admin</small>
-            </div>
+      <div class="side-header">
+        <h3>M<span>odern</span></h3>
+      </div>
 
-            <div class="side-menu">
-                <ul>
-                    <!-- MENU ĐÃ ĐƯỢC CẬP NHẬT -->
-                    <li>
-                        <a href="admin.html" class="active"> <!-- Đang ở trang Dashboard -->
-                            <span class="las la-home"></span>
-                            <small>Dashboard</small>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="admin-products.html"> <!-- Link sang trang Quản lý Sản phẩm -->
-                            <span class="las la-box"></span>
-                            <small>Sản Phẩm</small>
-                        </a>
-                    </li>
-                        <li>
-                        <a href="admin-orders.html">
-                            <span class="las la-shopping-cart"></span>
-                            <small>Đơn Hàng</small>
-                        </a>
-                    </li>
-                </ul>
-            </div>
+      <div class="side-content">
+        <div class="profile">
+          <div
+            class="profile-img bg-img"
+            style="background-image: url(../images/admin.jpg)"
+          ></div>
+          <h4>TNT</h4>
+          <small>Admin</small>
         </div>
+
+        <div class="side-menu">
+          <ul>
+            <!-- MENU ĐÃ ĐƯỢC CẬP NHẬT -->
+            <li>
+              <a href="admin.html" class="active">
+                <!-- Đang ở trang Dashboard -->
+                <span class="las la-home"></span>
+                <small>Dashboard</small>
+              </a>
+            </li>
+            <li>
+              <a href="admin-products.html">
+                <!-- Link sang trang Quản lý Sản phẩm -->
+                <span class="las la-box"></span>
+                <small>Sản Phẩm</small>
+              </a>
+            </li>
+            <li>
+              <a href="admin-orders.html">
+                <span class="las la-shopping-cart"></span>
+                <small>Đơn Hàng</small>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
-    
+
     <div class="main-content">
-        
-        <header>
-            <div class="header-content">
-                <label for="menu-toggle">
-                    <span class="las la-bars"></span>
-                </label>
-                
-                <div class="header-menu">
-                    <label for="">
-                        <span class="las la-search"></span>
-                    </label>
-                    
-                    <div class="notify-icon">
-                        <span class="las la-envelope"></span>
-                        <span class="notify">4</span>
-                    </div>
-                    
-                    <div class="notify-icon">
-                        <span class="las la-bell"></span>
-                        <span class="notify">3</span>
-                    </div>
-                    
-                    <div class="user">
-                        <div class="bg-img" style="background-image: url(img/1.jpeg)"></div>
-                        
-                        <span class="las la-power-off"></span>
-                        <span id="logout-btn"  style="cursor: pointer;">Logout</span>
-                    </div>
-                </div>
+      <header>
+        <div class="header-content">
+          <label for="menu-toggle">
+            <span class="las la-bars"></span>
+          </label>
+
+          <div class="header-menu">
+            <label for="">
+              <span class="las la-search"></span>
+            </label>
+
+            <div class="notify-icon">
+              <span class="las la-envelope"></span>
+              <span class="notify">4</span>
             </div>
-        </header>
-        
-        
-        <main>
-            
-            <div class="page-header">
-                <h1>Dashboard</h1>
-                <small>Home / Dashboard</small>
+
+            <div class="notify-icon">
+              <span class="las la-bell"></span>
+              <span class="notify">3</span>
             </div>
-            
-            <div class="page-content">
-            
 
+            <div class="user">
+              <div
+                class="bg-img"
+                style="background-image: url(img/1.jpeg)"
+              ></div>
 
-                <div class="records table-responsive">
+              <span class="las la-power-off"></span>
+              <span id="logout-btn" style="cursor: pointer">Logout</span>
+            </div>
+          </div>
+        </div>
+      </header>
 
-                    <div class="record-header">
-                        <div class="add">
-                            <span>Entries</span>
-                            <select name="" id="">
-                                <option value="">ID</option>
-                            </select>
-                            <button>Add record</button>
+      <main>
+        <div class="page-header">
+          <h1>Dashboard</h1>
+          <small>Home / Dashboard</small>
+        </div>
+
+        <div class="page-content">
+          <div class="records table-responsive">
+            <div class="record-header">
+              <div class="add">
+                <span>Entries</span>
+                <select name="" id="">
+                  <option value="">ID</option>
+                </select>
+                <button>Add record</button>
+              </div>
+
+              <div class="browse">
+                <input
+                  type="search"
+                  placeholder="Search"
+                  class="record-search"
+                />
+                <select name="" id="">
+                  <option value="">Status</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <table width="100%">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th><span class="las la-sort"></span> CLIENT </th>
+                    <th><span class="las"></span> AMOUNT PAID </th>
+                    <th><span class="las"></span> ACTIONS </th>
+                  </tr>
+                </thead>
+                <tbody id="customer-list">
+                  <tr>
+                    <td>#1800</td>
+                    <td>
+                      <div class="client">
+                        <span>anthuyen@gmail.com</span>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="client">
+                        <span>anthuyen@gmail.com</span>
+                      </div>
+                    </td>
+
+                    <td>
+                      <div class="actions">
+                        <span class="lab la-telegram-plane"></span>
+                        <span class="las la-eye"></span>
+                        <span class="las la-ellipsis-v"></span>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>#3618</td>
+                    <td>
+                      <div class="client">
+                        <div
+                          class="client-img bg-img"
+                          style="
+                            background-image: url(../images/goyounjung1.jpg);
+                          "
+                        ></div>
+                        <div class="client-info">
+                          <h4>goyounjung</h4>
+                          <small>goyounjung@gmail.com</small>
                         </div>
-
-                        <div class="browse">
-                           <input type="search" placeholder="Search" class="record-search">
-                            <select name="" id="">
-                                <option value="">Status</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div>
-                        <table width="100%">
-                            <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th><span class="las la-sort"></span> CLIENT</th>
-                                    <th><span class="las la-sort"></span> ACTIONS</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>#1800</td>
-                                    <td>
-                                        <div class="client">
-                                           <div class="client-img bg-img" style="background-image: url(../images/anthuyen.jpg)"></div>
-                                            <div class="client-info">
-                                                <h4>An Thuyen</h4>
-                                                <small>anthuyen@gmail.com</small>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    
-                                    <td>
-                                        <div class="actions">
-                                            <span class="lab la-telegram-plane"></span>
-                                            <span class="las la-eye"></span>
-                                            <span class="las la-ellipsis-v"></span>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>#3618</td>
-                                    <td>
-                                        <div class="client">
-                                           <div class="client-img bg-img" style="background-image: url(../images/goyounjung1.jpg)"></div>
-                                            <div class="client-info">
-                                                <h4>goyounjung</h4>
-                                                <small>goyounjung@gmail.com</small>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="actions">
-                                            <span class="lab la-telegram-plane"></span>
-                                            <span class="las la-eye"></span>
-                                            <span class="las la-ellipsis-v"></span>
-                                        </div>
-                                    </td>
-                                </tr>
-                                
-                            </tbody>
-                        </table>
-                    </div>
-
-                </div>
-            
+                      </div>
+                    </td>
+                    <td>
+                      <div class="actions">
+                        <span class="lab la-telegram-plane"></span>
+                        <span class="las la-eye"></span>
+                        <span class="las la-ellipsis-v"></span>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
-            
-        </main>
-        
+          </div>
+        </div>
+      </main>
     </div>
     <script type="module" src="admin.js"></script>
-
-</body>
+  </body>
 </html>

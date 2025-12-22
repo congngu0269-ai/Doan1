@@ -1,98 +1,80 @@
-document.addEventListener('DOMContentLoaded', () => {
-    
-    // Dữ liệu mẫu Đơn Hàng (Vì chưa có Backend thật)
-    let orders = [
-        {
-            id: "ORD-001",
-            customer: "An Thuyên",
-            phone: "0901234567",
-            date: "10/12/2025",
-            total: "355.000",
-            status: "delivered",
-            payment: "COD"
-        },
-        {
-            id: "ORD-002",
-            customer: "Goyounjung",
-            phone: "0912345678",
-            date: "21/11/2025",
-            total: "1.200.000",
-            status: "shipping",
-            payment: "Banking"
-        },
-        {
-            id: "ORD-003",
-            customer: "Gumayusi",
-            phone: "0987654321",
-            date: "12/12/2025",
-            total: "150.000",
-            status: "pending",
-            payment: "COD"
-        }
-    ];
+import { apiRequest } from "../common/common.js";
 
-    const tableBody = document.getElementById('order-table-body');
-    const statusFilter = document.getElementById('status-filter');
-    const searchInput = document.getElementById('search-order');
+async function fetchOrders() {
+  return await apiRequest({
+    url: "orders",
+    method: "GET",
+    onError: (err) => {
+      console.error("Error fetching orders:", err);
+      alert("Lỗi khi tải đơn hàng. Vui lòng thử lại sau.");
+      return [];
+    },
+    requireAuth: true,
+  });
+}
 
-    // --- 1. RENDER BẢNG ĐƠN HÀNG ---
-    function renderOrders(data) {
-        tableBody.innerHTML = '';
+function renderOrder(data) {
+  const tableBody = document.getElementById("order-table-body");
+  tableBody.innerHTML = "";
 
-        if (data.length === 0) {
-            tableBody.innerHTML = '<tr><td colspan="6" style="text-align:center">Không tìm thấy đơn hàng nào.</td></tr>'; // colspan 6 vì bỏ cột thao tác
-            return;
-        }
+  if (data.length === 0) {
+    tableBody.innerHTML =
+      '<tr><td colspan="6" style="text-align:center">Không tìm thấy đơn hàng nào.</td></tr>'; // colspan 6 vì bỏ cột thao tác
+    return;
+  }
 
-        data.forEach(order => {
-            let statusText = '';
-            let statusClass = '';
+  data.forEach((order) => {
+    let statusText = "";
+    let statusClass = "";
 
-            switch(order.status) {
-                case 'pending': statusText = 'Chờ xử lý'; statusClass = 'pending'; break;
-                case 'shipping': statusText = 'Đang giao'; statusClass = 'shipping'; break;
-                case 'delivered': statusText = 'Đã giao'; statusClass = 'delivered'; break;
-                case 'cancelled': statusText = 'Đã hủy'; statusClass = 'cancelled'; break;
-            }
+    switch (order.status) {
+      case "pending":
+        statusText = "Chờ xử lý";
+        statusClass = "pending";
+        break;
+      case "shipping":
+        statusText = "Đang giao";
+        statusClass = "shipping";
+        break;
+      case "delivered":
+        statusText = "Đã giao";
+        statusClass = "delivered";
+        break;
+      case "cancelled":
+        statusText = "Đã hủy";
+        statusClass = "cancelled";
+        break;
+    }
 
-            const paymentText = order.payment === 'COD' ? 'Thanh toán khi nhận' : '<span style="color:green">Đã thanh toán</span>';
+    const paymentText =
+      order.payment === "COD"
+        ? "Thanh toán khi nhận"
+        : '<span style="color:green">Đã thanh toán</span>';
 
-            const row = document.createElement('tr');
-            row.innerHTML = `
+    const row = document.createElement("tr");
+    row.innerHTML = `
                 <td><strong>#${order.id}</strong></td>
                 <td>
                     <div class="client-info">
-                        <h4>${order.customer}</h4>
-                        <small>${order.phone}</small>
+                        <h4>${order.customerName}</h4>
                     </div>
                 </td>
-                <td>${order.date}</td>
-                <td><strong>${order.total}đ</strong></td>
-                <td><span class="status ${statusClass}">${statusText}</span></td>
-                <td><span class="payment-status">${paymentText}</span></td>
+                <td>${
+                  new Date(order.createdAt).toISOString().split("T")[0]
+                }</td>
+                <td><span class="status">${order.goodName}</span></td>
+                <td><span class="payment-status">${order.price} VND</span></td>
+                <td><strong>${order.amount}</strong></td>
             `;
-            tableBody.appendChild(row);
-        });
-    }
+    tableBody.appendChild(row);
+  });
+}
 
-    // --- 2. LỌC & TÌM KIẾM ---
-    function filterOrders() {
-        const status = statusFilter.value;
-        const keyword = searchInput.value.toLowerCase();
+document.addEventListener("DOMContentLoaded", async () => {
+  // Dữ liệu mẫu Đơn Hàng (Vì chưa có Backend thật)
+  let orders = await fetchOrders();
+  renderOrder(orders);
 
-        const filtered = orders.filter(order => {
-            const matchStatus = status === 'all' || order.status === status;
-            const matchKeyword = order.id.toLowerCase().includes(keyword) || 
-                                 order.customer.toLowerCase().includes(keyword);
-            return matchStatus && matchKeyword;
-        });
-
-        renderOrders(filtered);
-    }
-
-    statusFilter.addEventListener('change', filterOrders);
-    searchInput.addEventListener('keyup', filterOrders);
-
-    // --- CHẠY LẦN ĐẦU ---
-    renderOrders(orders);
+  const statusFilter = document.getElementById("status-filter");
+  const searchInput = document.getElementById("search-order");
 });
